@@ -991,6 +991,8 @@ local aF=aC.Humanoid.RootPart.Position
 local aG=t:GetChildren()
 local aH=v:GetChildren()
 
+ax=nil
+
 for aI=1,#aG do
 local aJ=aG[aI]
 if aJ==aC or not ag(aJ)then continue end
@@ -1041,7 +1043,7 @@ end)end local aD=function()
 if not ad.SILENT_AIM_ENABLED then return end
 if f.rz_original_namecall then return end
 
-table.insert(c,C:Connect(aB))
+C:Connect(aB)
 
 local aD={
 ["RE/ShootGunEvent"]=function(...)
