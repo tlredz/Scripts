@@ -759,8 +759,8 @@ local aE,aF=math.huge
 for aG=1,#aw do
 local aH=aw[aG]
 
-if aC(aH)then
-local aI=D:DistanceFromCharacter(aH.Parent:GetPivot().Position)
+if aC(aH)and aH.Parent then
+local aI=al(aH.Parent:GetPivot().Position)
 
 if aI<aE then
 aE,aF=aI,aH
