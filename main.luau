@@ -1,9 +1,10 @@
 local _ENV = (getgenv or getrenv or getfenv)()
+local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 
 local Scripts = {
 	{
 		PlacesIds = {2753915549, 4442272183, 7449423635},
-		UrlPath = if (BETA_VERSION or _ENV.BETA_VERSION) then "BLOX-FRUITS-BETA.lua" else "BloxFruits.luau" 
+		UrlPath = if BETA_VERSION then "BLOX-FRUITS-BETA.lua" else "BloxFruits.luau" 
 	},
 	{
 		PlacesIds = {10260193230},
@@ -46,7 +47,13 @@ do
 			SettingsCode = "unpack(game:GetService('HttpService'):JSONDecode('" .. EncodedSettings .. "'))"
 		end
 		
-		pcall(queueteleport, ("loadstring(game:HttpGet('%smain.luau'))(%s)"):format(urls.Repository, SettingsCode))
+		local SourceCode = ("loadstring(game:HttpGet('%smain.luau'))(%s)"):format(urls.Repository, SettingsCode)
+		
+		if BETA_VERSION then
+			SourceCode = "getgenv().BETA_VERSION=true;" .. SourceCode
+		end
+		
+		pcall(queueteleport, SourceCode)
 	end
 end
 
