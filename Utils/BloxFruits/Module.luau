@@ -388,18 +388,10 @@ ae=at
 _(at)
 return nil
 end
-end end local aq=function()
-
-
-
-if U or#m:GetPlayers()==1 then
-j:Teleport(game.PlaceId,D)
-else
-j:TeleportToPlaceInstance(game.PlaceId,game.JobId,D)
 end end
 
 
-local ar={
+local aq={
 Closest=nil,
 Equipped=nil,
 
@@ -411,55 +403,96 @@ Progress={},
 Tools={}
 }
 
-local as={
+local ar={
 Sea=table.find({2753915549,4442272183,7449423635},game.PlaceId)or 0,
 SeasName={"Main","Dressrosa","Zou"},
 MaxMastery=600,
 MaxLevel=2750
 }
 
-as.StringVersion=d.GetGameVersion(Y)
-as.NumberVersion=am(as.StringVersion)
+ar.StringVersion=d.GetGameVersion(Y)
+ar.NumberVersion=am(ar.StringVersion)
 
 do
-if string.sub(as.StringVersion,1,1)~="v"then return D:Kick()end
+if string.sub(ar.StringVersion,1,1)~="v"then return D:Kick()end
 
-local at=string.split(string.sub(as.StringVersion,2,-1),".")
-local au=`{at[1]or 0}.`;
+local as=string.split(string.sub(ar.StringVersion,2,-1),".")
+local at=`{as[1]or 0}.`;
 
-for av=2,#at do
-au..=tostring(at[av]or 0)
+for au=2,#as do
+at..=tostring(as[au]or 0)
 end
 
-as.NumberVersion=tonumber(au)or 0
+ar.NumberVersion=tonumber(at)or 0
 end
 
-local at={
-IsAlive=X,
-GameData=as,
-Rejoin=aq,
-HookManager=ac,
-NewConnection=an,
+local as={
+DistanceFromCharacter=al,
 CreateDictionary=aa,
-DistanceFromCharacter=al
+NewConnection=an,
+HookManager=ac,
+GameData=ar,
+IsAlive=X,
 }
 
-at.Rejoin=aq
+function as.RejoinServer()
+if U or#m:GetPlayers()==1 then
+j:Teleport(game.PlaceId,D)
+else
+j:TeleportToPlaceInstance(game.PlaceId,game.JobId,D)
+end
+end
 
+function as.ServerHop(at,au)
+RejoinServer.RejoinBlocked=true
+
+at=math.min(at or 8,11)
+au=au or"Singapore"
+
+local av=i.__ServerBrowser;
+local aw=av.InvokeServer;
+local ax=game.JobId;
+local ay=1;
+local az=task.delay local aA=function()
+
+
+local aA,aB=pcall(aw,av,ay)
+ay+=1
+
+if aA~=true then return end
+if type(aB)~="table"then return end
+
+local aC,aD=at;
+
+for aE,aF in aB do
+if aE~=ax and aF.Count<=aC then
+aC,aD=aF.Count,aE;
+end
+end
+
+if aD then
+j:TeleportToPlaceInstance(game.PlaceId,aD,D)
+end end
+
+
+for aB=1,100 do
+az(aB/50,aA)
+end
+end
 
 do
-local au={}local av=function(...)
+local at={}local au=function(...)
 
 
-table.insert(au,{...})end
+table.insert(at,{...})end
 
 
-av("Frags",{
+au("Frags",{
 {"Race Reroll",{"BlackbeardReward","Reroll","2"}};
 {"Reset Stats",{"BlackbeardReward","Refund","2"}};
 });
 
-av("Fighting Style",{
+au("Fighting Style",{
 {"Buy Black Leg",{"BuyBlackLeg"}};
 {"Buy Electro",{"BuyElectro"}};
 {"Buy Fishman Karate",{"BuyFishmanKarate"}};
@@ -473,14 +506,14 @@ av("Fighting Style",{
 {"Buy Sanguine Art",{"BuySanguineArt"}};
 });
 
-av("Ability Teacher",{
+au("Ability Teacher",{
 {"Buy Geppo",{"BuyHaki","Geppo"}};
 {"Buy Buso",{"BuyHaki","Buso"}};
 {"Buy Soru",{"BuyHaki","Soru"}};
 {"Buy Ken",{"KenTalk","Buy"}};
 });
 
-av("Sword",{
+au("Sword",{
 {"Buy Katana",{"BuyItem","Katana"}};
 {"Buy Cutlass",{"BuyItem","Cutlass"}};
 {"Buy Dual Katana",{"BuyItem","Dual Katana"}};
@@ -492,7 +525,7 @@ av("Sword",{
 {"Buy Bisento",{"BuyItem","Bisento"}};
 });
 
-av("Gun",{
+au("Gun",{
 {"Buy Musket",{"BuyItem","Musket"}};
 {"Buy Slingshot",{"BuyItem","Slingshot"}};
 {"Buy Flintlock",{"BuyItem","Flintlock"}};
@@ -502,316 +535,316 @@ av("Gun",{
 {"Buy Kabucha",{"BlackbeardReward","Slingshot","2"}};
 });
 
-av("Accessories",{
+au("Accessories",{
 {"Buy Black Cape",{"BuyItem","Black Cape"}};
 {"Buy Swordsman Hat",{"BuyItem","Swordsman Hat"}};
 {"Buy Tomoe Ring",{"BuyItem","Tomoe Ring"}};
 });
 
-av("Race",{
+au("Race",{
 {"Ghoul Race",{"Ectoplasm","Change",4}};
 {"Cyborg Race",{"CyborgTrainer","Buy"}};
 });
 
-at.Shop=au;
+as.Shop=at;
 end
 
-function at:IsBlacklistedExecutor()
+function as:IsBlacklistedExecutor()
 return M
 end
 
 do
-local au="Fruit "
-local av=10
-local aw="Fruit [ ???-??? ]"
-local ax="0"
+local at="Fruit "
+local au=10
+local av="Fruit [ ???-??? ]"
+local aw="0"
 
-local ay={}local az=function(
+local ax={}local ay=function(
 
-az, aA)
-ay[string.format("rbxassetid://%s",tostring(az))]=string.format("Fruit [ %s-%s ]",aA,aA)end
+ay, az)
+ax[string.format("rbxassetid://%s",tostring(ay))]=string.format("Fruit [ %s-%s ]",az,az)end
 
 
 do
-az(15124425041,"Rocket")
-az(15123685330,"Spin")
-az(15123613404,"Blade")
-az(15123689268,"Spring")
-az(15123595806,"Bomb")
-az(15123677932,"Smoke")
-az(15124220207,"Spike")
-az(121545956771325,"Flame")
-az(15123673019,"Sand")
-az(15123618591,"Dark")
-az(77885466312115,"Eagle")
-az(15112600534,"Diamond")
-az(15123640714,"Light")
-az(15123668008,"Rubber")
-az(15123662036,"Ghost")
-az(15123645682,"Magma")
-az(15123606541,"Quake")
-az(15123643097,"Love")
-az(15123681598,"Spider")
-az(116828771482820,"Creation")
-az(15123679712,"Sound")
-az(15123654553,"Phoenix")
-az(15123656798,"Portal")
-az(15123670514,"Rumble")
-az(15123652069,"Pain")
-az(15123587371,"Blizzard")
-az(15123633312,"Gravity")
-az(15123648309,"Mammoth")
-az(15694681122,"T-Rex")
-az(15123624401,"Dough")
-az(15123675904,"Shadow")
-az(10773719142,"Venom")
-az(15123616275,"Control")
-az(118054805452821,"Gas")
-az(11911905519,"Spirit")
-az(15123638064,"Leopard")
-az(115276580506154,"Yeti")
-az(15487764876,"Kitsune")
-az(95749033139458,"Dragon East")
+ay(15124425041,"Rocket")
+ay(15123685330,"Spin")
+ay(15123613404,"Blade")
+ay(15123689268,"Spring")
+ay(15123595806,"Bomb")
+ay(15123677932,"Smoke")
+ay(15124220207,"Spike")
+ay(121545956771325,"Flame")
+ay(15123673019,"Sand")
+ay(15123618591,"Dark")
+ay(77885466312115,"Eagle")
+ay(15112600534,"Diamond")
+ay(15123640714,"Light")
+ay(15123668008,"Rubber")
+ay(15123662036,"Ghost")
+ay(15123645682,"Magma")
+ay(15123606541,"Quake")
+ay(15123643097,"Love")
+ay(15123681598,"Spider")
+ay(116828771482820,"Creation")
+ay(15123679712,"Sound")
+ay(15123654553,"Phoenix")
+ay(15123656798,"Portal")
+ay(15123670514,"Rumble")
+ay(15123652069,"Pain")
+ay(15123587371,"Blizzard")
+ay(15123633312,"Gravity")
+ay(15123648309,"Mammoth")
+ay(15694681122,"T-Rex")
+ay(15123624401,"Dough")
+ay(15123675904,"Shadow")
+ay(10773719142,"Venom")
+ay(15123616275,"Control")
+ay(118054805452821,"Gas")
+ay(11911905519,"Spirit")
+ay(15123638064,"Leopard")
+ay(115276580506154,"Yeti")
+ay(15487764876,"Kitsune")
+ay(95749033139458,"Dragon East")
 end
 
+local az=setmetatable({},ah())
 local aA=setmetatable({},ah())
-local aB=setmetatable({},ah())
 
-local aC={
+local aB={
 Animation="Animation",
 Fruit="MeshPart",
 Idle="MeshPart"
-}local aD=function(
+}local aC=function(
 
-aD)
-return aD:IsA"MeshPart"and"MeshId"or"AnimationId"end local aE=function(
-
-
-aE, aF, aG)
-aA[aE]=aF
-aB[aE]=aG end local aF=function(
+aC)
+return aC:IsA"MeshPart"and"MeshId"or"AnimationId"end local aD=function(
 
 
-aF)
-local aG=aC[aF.Name]
-
-if aG and aF:IsA(aG)then
-local aH=aF[aD(aF)]
-return ay[aH],aH
-end end local aG=function(
+aD, aE, aF)
+az[aD]=aE
+aA[aD]=aF end local aE=function(
 
 
-aG, aH)
-for aI,aJ in aG:GetChildren()do
-local aK,aL=aF(aJ)
-if aK then
-aE(aG,aK,aL)
-return aK,aL
+aE)
+local aF=aB[aE.Name]
+
+if aF and aE:IsA(aF)then
+local aG=aE[aC(aE)]
+return ax[aG],aG
+end end local aF=function(
+
+
+aF, aG)
+for aH,aI in aF:GetChildren()do
+local aJ,aK=aE(aI)
+if aJ then
+aD(aF,aJ,aK)
+return aJ,aK
 end
 end
 
+local aH
 local aI
-local aJ
-local aK=av
+local aJ=au
 
-local aL=aH.ChildAdded:Connect(function(aL)
-if not aI then
-aI,aJ=aF(aL)
+local aK=aG.ChildAdded:Connect(function(aK)
+if not aH then
+aH,aI=aE(aK)
 end
 end)
 
-while not aI and aK>0 do
-aK-=task.wait()
+while not aH and aJ>0 do
+aJ-=task.wait()
 end
 
-aL:Disconnect()
+aK:Disconnect()
 
-if aI then
-aE(aG,aI,aJ)
-return aI
+if aH then
+aD(aF,aH,aI)
+return aH
 end end
 
 
-function at.GetRealFruitName(aH,aI)
-if aH.Name~=au then
-return aH.Name
+function as.GetRealFruitName(aG,aH)
+if aG.Name~=at then
+return aG.Name
 end
 
-if aA[aH]then
-return aI and aB[aH]or aA[aH]
+if az[aG]then
+return aH and aA[aG]or az[aG]
 end
 
-aA[aH]=aw
-aB[aH]=ax
+az[aG]=av
+aA[aG]=aw
 
-local aJ=aH:WaitForChild("Fruit",math.huge)
-aG(aH,aJ)
+local aI=aG:WaitForChild("Fruit",math.huge)
+aF(aG,aI)
 
-return(aI and aB[aH]or aA[aH])or ax
+return(aH and aA[aG]or az[aG])or aw
 end
 end
 
-at.CollectionService=(function()
-local au={}
+as.CollectionService=(function()
+local at={}
 
-local av=ao"_ChestTagged"
-local aw=ao"BerryBush"
+local au=ao"_ChestTagged"
+local av=ao"BerryBush"
 
-local ax,ay=0;
-local az,aA=0;
+local aw,ax=0;
+local ay,az=0;
 
-au.Chests=av
-au.Berries=aw local aB=function(
+at.Chests=au
+at.Berries=av local aA=function(
+
+aA)
+return aA and not aA:GetAttribute"IsDisabled"end local aB=function(
+
 
 aB)
-return aB and not aB:GetAttribute"IsDisabled"end local aC=function(
+return aB and next(aB:GetAttributes())~=nil end local aC=function(
 
 
 aC)
-return aC and next(aC:GetAttributes())~=nil end local aD=function(
-
-
-aD)
-if aB(ay)and(not aD or ay:IsDescendantOf(aD))then
-return ay
-elseif(tick()-ax)<1 then
+if aA(ax)and(not aC or ax:IsDescendantOf(aC))then
+return ax
+elseif(tick()-aw)<1 then
 return nil
 end
 
-local aE,aF=math.huge
+local aD,aE=math.huge
 
-for aG=1,#av do
-local aH=av[aG]
-if aB(aH)and(not aD or ay:IsDescendantOf(aD))then
-local aI=D:DistanceFromCharacter(aH:GetPivot().Position)
+for aF=1,#au do
+local aG=au[aF]
+if aA(aG)and(not aC or ax:IsDescendantOf(aC))then
+local aH=D:DistanceFromCharacter(aG:GetPivot().Position)
 
-if aI<aE then
-aE,aF=aI,aH
+if aH<aD then
+aD,aE=aH,aG
 end
 end
 end
 
-ax=tick()
-ay=aF
+aw=tick()
+ax=aE
 
-return aF end local aE=function()
+return aE end local aD=function()
 
 
 
-if aC(aA)and aA:IsDescendantOf(x)then
-return aA
-elseif(tick()-az)<1 then
+if aB(az)and az:IsDescendantOf(x)then
+return az
+elseif(tick()-ay)<1 then
 return nil
 end
 
-local aE,aF=math.huge
+local aD,aE=math.huge
 
-for aG=1,#aw do
-local aH=aw[aG]
+for aF=1,#av do
+local aG=av[aF]
 
-if aC(aH)then
-local aI=D:DistanceFromCharacter(aH.Parent:GetPivot().Position)
+if aB(aG)then
+local aH=D:DistanceFromCharacter(aG.Parent:GetPivot().Position)
 
-if aI<aE then
-aE,aF=aI,aH
+if aH<aD then
+aD,aE=aH,aG
 end
 end
 end
 
-az=tick()
-aA=aF
+ay=tick()
+az=aE
 
-return aF end
+return aE end
 
 
-at.GetClosestChest=aD;
-at.GetClosestBerry=aE;
-at.HasBerries=aC;
+as.GetClosestChest=aC;
+as.GetClosestBerry=aD;
+as.HasBerries=aB;
+
+return at
+end)()
+
+as.Services=(function()
+local at={}
+
+at.Network=(function()
+local au={}
+
+local av=p.InvokeServer;
+
+local aw="RF/%s";
+local ax="RE/%s";
+
+local ay={};local az=function(
+
+az, aA, aB)
+local aC=J:WaitForChild(az:format(aB))
+
+if not aC then
+return error(`Cannot found {aB}: {aA} in Network`,2)
+end
+
+return aC end
+
+
+function au.InvokeCommF(...)
+return av(p,...)
+end
+
+function au.TravelTo(aA)
+return au.InvokeCommF(`Travel{ar.SeasName[aA]}`)
+end
+
+function au.GetProgress(...)
+local aA=...
+
+if ay[aA]and ay[aA].Debounce<0 then
+return unpack(ay[aA].Args)
+end
+
+ay[aA]={
+Debounce=tick()+2.5,
+Args=table.pack(au.InvokeCommF(...))
+}
+
+return unpack(ay[aA].Args)
+end
+
+function au:RemoteFunction(aA)
+return az(aw,"RemoteFunction",aA)
+end
+
+function au:RemoteEvent(aA)
+return az(ax,"RemoteEvent",aA)
+end
 
 return au
 end)()
 
-at.Services=(function()
+at.GoodSignal=(function()
 local au={}
-
-au.Network=(function()
 local av={}
 
-local aw=p.InvokeServer;
-
-local ax="RF/%s";
-local ay="RE/%s";
-
-local az={};local aA=function(
-
-aA, aB, aC)
-local aD=J:WaitForChild(aA:format(aC))
-
-if not aD then
-return error(`Cannot found {aC}: {aB} in Network`,2)
-end
-
-return aD end
-
-
-function av.InvokeCommF(...)
-return aw(p,...)
-end
-
-function av.TravelTo(aB)
-return av.InvokeCommF(`Travel{as.SeasName[aB]}`)
-end
-
-function av.GetProgress(...)
-local aB=...
-
-if az[aB]and az[aB].Debounce<0 then
-return unpack(az[aB].Args)
-end
-
-az[aB]={
-Debounce=tick()+2.5,
-Args=table.pack(av.InvokeCommF(...))
-}
-
-return unpack(az[aB].Args)
-end
-
-function av:RemoteFunction(aB)
-return aA(ax,"RemoteFunction",aB)
-end
-
-function av:RemoteEvent(aB)
-return aA(ay,"RemoteEvent",aB)
-end
-
-return av
-end)()
-
-au.GoodSignal=(function()
-local av={}
-local aw={}
-
-aw.__index=aw
 av.__index=av
+au.__index=au
 
 do
-function aw:Disconnect()
+function av:Disconnect()
 if not self.Connected then
 return nil
 end
 
-local ax=table.find(self.Signal,self)
+local aw=table.find(self.Signal,self)
 
-if ax then
-table.remove(self.Signal,ax)
+if aw then
+table.remove(self.Signal,aw)
 end
 
 self.Function=nil
 self.Connected=false
 end
 
-function aw:Fire(...)
+function av:Fire(...)
 if not self.Function then
 return nil
 end
@@ -819,230 +852,225 @@ end
 task.spawn(self.Function,...)
 end
 
-function aw.new()
+function av.new()
 return setmetatable({
 Connected=true
-},aw)
+},av)
 end
 
-setmetatable(aw,{
-__index=function(ax,ay)
-error(("Attempt to get Connection::%s (not a valid member)"):format(tostring(ay)),2)
+setmetatable(av,{
+__index=function(aw,ax)
+error(("Attempt to get Connection::%s (not a valid member)"):format(tostring(ax)),2)
 end,
-__newindex=function(ax,ay,az)
-error(("Attempt to set Connection::%s (not a valid member)"):format(tostring(ay)),2)
+__newindex=function(aw,ax,ay)
+error(("Attempt to set Connection::%s (not a valid member)"):format(tostring(ax)),2)
 end
 })
 end
 
-function av:Connect(ax)
-assert(type(ax)=="function","function expected, got "..type(ax))
+function au:Connect(aw)
+assert(type(aw)=="function","function expected, got "..type(aw))
 
-local ay=aw.new()
-ay.Function=ax
-ay.Signal=self
+local ax=av.new()
+ax.Function=aw
+ax.Signal=self
 
-table.insert(self.Connections,ay)
-return ay
+table.insert(self.Connections,ax)
+return ax
 end
 
-function av:Once(ax)
-local ay;
-ay=self:Connect(function(...)
-ax(...)
-ay:Disconnect()
+function au:Once(aw)
+local ax;
+ax=self:Connect(function(...)
+aw(...)
+ax:Disconnect()
 end)
-return ay
+return ax
 end
 
-function av:Wait()
-local ax=coroutine.running()
-local ay;ay=self:Connect(function(...)
-ay:Disconnect()
-task.spawn(ax,...)
+function au:Wait()
+local aw=coroutine.running()
+local ax;ax=self:Connect(function(...)
+ax:Disconnect()
+task.spawn(aw,...)
 end)
 return coroutine.yield()
 end
 
-function av:Fire(...)
-for ax,ay in ipairs(self.Connections)do
-if ay.Connected then
-ay:Fire(...)
+function au:Fire(...)
+for aw,ax in ipairs(self.Connections)do
+if ax.Connected then
+ax:Fire(...)
 end
 end
 end
 
-function av.new()
+function au.new()
 return setmetatable({
 Connections={}
-},av)
+},au)
 end
 
-av.Signals={
-BvChanged=av.new(),
-Notify=av.new(),
-Error=av.new(),
+au.Signals={
+BvChanged=au.new(),
+Notify=au.new(),
+Error=au.new(),
 }
 
-setmetatable(av,{
-__index=function(ax,ay)
-error(`Attempt to get Signal::{tostring(ay)} (not a valid member)`,2)
+setmetatable(au,{
+__index=function(aw,ax)
+error(`Attempt to get Signal::{tostring(ax)} (not a valid member)`,2)
 end,
-__newindex=function(ax,ay,az)
-error(`Attempt to set Signal::{tostring(ay)} (not a valid member)`,2)
+__newindex=function(aw,ax,ay)
+error(`Attempt to set Signal::{tostring(ax)} (not a valid member)`,2)
 end
 })
 
-return av
+return au
 end)()
 
-au.PlayerManager=(function()
-local av={}
+at.PlayerManager=(function()
+local au={}
 
-local aw=Vector3.zero local ax=function()
-
-
-local ax=D.Character
-return X(ax)and ax.Humanoid.RootPart end
+local av=Vector3.zero local aw=function()
 
 
-function av:GetRootPartPosition()
-local ay=ax()
+local aw=D.Character
+return X(aw)and aw.Humanoid.RootPart end
 
-if ay then
-aw=ay.Position
+
+function au:GetRootPartPosition()
+local ax=aw()
+
+if ax then
+av=ax.Position
 end
 
-return aw
+return av
 end
 
 an(D.CharacterAdded,function(...)PlayerCharacter=...end)
 an(D.CharacterRemoving,function()PlayerCharacter=nil end)
 
-return av
+return au
 end)()
 
-au.Hooking=(function()
-local av={}
+at.Hooking=(function()
+local au={}
 
 aa({"Z","X","C","V","F"},true)local _=
 
 f.rz_EnabledOptions;
-local ay;
+local ax;
 
-local az=0;
-local aA=0;local aB=function(
+local ay=0;
+local az=0;local aA=function(
 
-aB)
-if(tick()-az)<=2 or f[aB]then
-return ay
-end end local aC=function()
+aA)
+if(tick()-ay)<=2 or f[aA]then
+return ax
+end end local aB=function()
 
 
 
-local aC=if e.SmoothMode then 0.5 else 0.25
-local aD=tick()
+local aB=tick()
 
-if ay and not ay.Parent then
-ay.Parent=nil
-end
-
-if(aD-az)<=2 or(aD-aA)<=aC then
+if(aB-ay)<=2 or(aB-az)<=0 then
 return nil
 else
-aA=aD
+az=aB+(if e.SmoothMode then 0.5 else 0.25)
 end
 
-local aE=D.Character
-local aF=X(aE)and aE:FindFirstChildOfClass"Tool"
+local aC=D.Character
+local aD=X(aC)and aC:FindFirstChildOfClass"Tool"
 
-if aF and aF.ToolTip and aE.Humanoid.RootPart then
-local aG=if aF.ToolTip=="Gun"then 250 else 900
+if aD and aD.ToolTip and aC.Humanoid.RootPart then
+local aE=if aD.ToolTip=="Gun"then 250 else 900
 
-local aH=aE.Humanoid.RootPart.Position
-local aI=t:GetChildren()
-local aJ=v:GetChildren()
+local aF=aC.Humanoid.RootPart.Position
+local aG=t:GetChildren()
+local aH=v:GetChildren()
 
-for aK=1,#aI do
-local aL=aI[aK]
-if aL==aE or not ag(aL)then continue end
-local aM=X(aL)and aL.Humanoid.RootPart
+for aI=1,#aG do
+local aJ=aG[aI]
+if aJ==aC or not ag(aJ)then continue end
+local aK=X(aJ)and aJ.Humanoid.RootPart
 
-if aM then
-local aN=(aM.Position-aH).Magnitude
+if aK then
+local aL=(aK.Position-aF).Magnitude
 
-if aN<=aG then
-ay,aG=Hitbox,aN
-end
-end
-end
-
-for aK=1,(if e.NoAimMobs then 0 else#aJ)do
-local aL=aJ[aK]
-local aM=X(aL)and aL.Humanoid.RootPart
-
-if aM then
-local aN=(aM.Position-aH).Magnitude
-
-if aN<=aG then
-ay,aG=Hitbox,aN
+if aL<=aE then
+ax,aE=aK,aL
 end
 end
 end
-end end local aD=function()
+
+for aI=1,(if e.NoAimMobs then 0 else#aH)do
+local aJ=aH[aI]
+local aK=X(aJ)and aJ.Humanoid.RootPart
+
+if aK then
+local aL=(aK.Position-aF).Magnitude
+
+if aL<=aE then
+ax,aE=aK,aL
+end
+end
+end
+end end local aC=function()
 
 
 
 if f.rz_enabled_bypass or not ad.WALKSPEED_BYPASS_ENABLED then return end
 f.rz_enabled_bypass=true
 
-local aD=ac.HookProperty
+local aC=ac.HookProperty
 
-local aE;
-aE=N(D,"__newindex",function(aF,aG,aH)
-if aG=="WalkSpeed"and aF.Name=="Humanoid"then
-aD(aF,aG,aH)
-return aE(aF,"WalkSpeed",f.WalkSpeedBypass or aH)
+local aD;
+aD=N(D,"__newindex",function(aE,aF,aG)
+if aF=="WalkSpeed"and aE.Name=="Humanoid"then
+aC(aE,aF,aG)
+return aD(aE,"WalkSpeed",f.WalkSpeedBypass or aG)
 else
-return aE(aF,aG,aH)
+return aD(aE,aF,aG)
 end
-end)end local aE=function()
+end)end local aD=function()
 
 
 
 if not ad.SILENT_AIM_ENABLED then return end
 if f.rz_original_namecall then return end
 
-table.insert(c,C:Connect(aC))
+table.insert(c,C:Connect(aB))
 
-local aE={
+local aD={
 ["RE/ShootGunEvent"]=function(...)
-local aE,aF=...
+local aD,aE=...
 
-if typeof(aE)=="Vector3"and type(aF)=="table"and#aF~=0 then
-local aG=aB"AimBot_Gun"
+if typeof(aD)=="Vector3"and type(aE)=="table"and#aE~=0 then
+local aF=aA"AimBot_Gun"
 
-if aG then
-return aG.Position,{aG}
+if aF then
+return aF.Position,{aF}
 end
 end
 
 return...
 end,
 ["RemoteEvent"]=function(...)
-local aE,aF=...
+local aD,aE=...
 
-if typeof(aE)=="Vector3"and not aF then
-local aG=aB"AimBot_Skills"
+if typeof(aD)=="Vector3"and not aE then
+local aF=aA"AimBot_Skills"
 
-if aG then
-return aG.Position
+if aF then
+return aF.Position
 end
-elseif aE=="TAP"and typeof(aF)=="Vector3"then
-local aG=aB"AimBot_Tap"
+elseif aD=="TAP"and typeof(aE)=="Vector3"then
+local aF=aA"AimBot_Tap"
 
-if aG then
-return"TAP",aG.Position
+if aF then
+return"TAP",aF.Position
 end
 end
 
@@ -1050,37 +1078,37 @@ return...
 end
 }
 
-local aF=ac.OriginalIndex
-local aG=string.lower
+local aE=ac.OriginalIndex
+local aF=string.lower
 
-local aH;
-aH=N(game,"__namecall",function(aI,...)
-local aJ=aE[aF(aI,"Name")]
+local aG;
+aG=N(game,"__namecall",function(aH,...)
+local aI=aD[aE(aH,"Name")]
 
-if aJ and aG(getnamecallmethod())=="fireserver"then
-return aH(aI,aJ(...))
+if aI and aF(getnamecallmethod())=="fireserver"then
+return aG(aH,aI(...))
 else
-return aH(aI,...)
+return aG(aH,...)
 end
 end)
 
-f.rz_original_namecall=aH end
+f.rz_original_namecall=aG end
 
 
-at.HookGame=function()
+as.HookGame=function()
+task.delay(1,aC)
 task.delay(1,aD)
-task.delay(1,aE)
 end
 
-function av:SetAimTarget(aF)
-ay,az=aF,tick()
+function au:SetAimTarget(aE)
+ax,ay=aE,tick()
 end
 
-return av
+return au
 end)()
 
-au.Inventory=(function()
-local av={
+at.Inventory=(function()
+local au={
 Unlocked=ai(false),
 Mastery=ai(0),
 Count=ai(0),
@@ -1090,71 +1118,71 @@ Loaded=false,
 Items={}
 }
 
-local aw=au.GoodSignal.Signals.Notify local ax=function(
+local av=at.GoodSignal.Signals.Notify local aw=function(
+
+aw, ax)
+if type(ax)~="table"then return end
+
+local ay=ax.Name
+aw.Items[ay]=ax
+
+if not aw.Unlocked[ay]then aw.Unlocked[ay]=true end
+if ax.Count then aw.Count[ay]=ax.Count end
+if ax.Mastery then aw.Mastery[ay]=ax.Mastery end
+if ax.MasteryRequirements then aw.MasteryRequirements[ay]=ax.MasteryRequirements end end local ax=function(
+
 
 ax, ay)
-if type(ay)~="table"then return end
-
-local az=ay.Name
-ax.Items[az]=ay
-
-if not ax.Unlocked[az]then ax.Unlocked[az]=true end
-if ay.Count then ax.Count[az]=ay.Count end
-if ay.Mastery then ax.Mastery[az]=ay.Mastery end
-if ay.MasteryRequirements then ax.MasteryRequirements[az]=ay.MasteryRequirements end end local ay=function(
-
-
-ay, az)
-if type(az)=="string"then
-ay.MasteryRequirements[az]=nil
-ay.Unlocked[az]=nil
-ay.Mastery[az]=nil
-ay.Count[az]=nil
-ay.Items[az]=nil
+if type(ay)=="string"then
+ax.MasteryRequirements[ay]=nil
+ax.Unlocked[ay]=nil
+ax.Mastery[ay]=nil
+ax.Count[ay]=nil
+ax.Items[ay]=nil
 end end
 
 
-local az={
-["ItemChanged"]=function(...)ax(av,...)end;
-["ItemAdded"]=function(...)ax(av,...)end;
-["ItemRemoved"]=function(...)ay(av,...)end;
-["Notify"]=function(...)aw:Fire(...)end;
-}local aA=function(
+local ay={
+["ItemChanged"]=function(...)aw(au,...)end;
+["ItemAdded"]=function(...)aw(au,...)end;
+["ItemRemoved"]=function(...)ax(au,...)end;
+["Notify"]=function(...)av:Fire(...)end;
+}local az=function(
 
-aA, ...)
-if aA and az[aA]then
-az[aA](...)
-end end local aB=function()
+az, ...)
+if az and ay[az]then
+ay[az](...)
+end end local aA=function()
 
 
 
-return au.Network.InvokeCommF"getInventory"end
+return at.Network.InvokeCommF"getInventory"end
 
 
 task.defer(function()
-an(q.OnClientEvent,aA)
-local aC=aB();
+an(q.OnClientEvent,az)
+local aB=aA();
 
-while type(aC)~="table"and task.wait(1)do
-aC=aB()
+while type(aB)~="table"and task.wait(1)do
+aB=aA()
 end
 
-for aD=1,#aC do
-ax(av,aC[aD])
+for aC=1,#aB do
+aw(au,aB[aC])
 end
 
-av.Loaded=true
+au.Loaded=true
 end)
 
-return av
+return au
 end)()
 
-au.Enemies=(function()
-local av=aa({
+at.Enemies=(function()
+local au=aa({
 "__CakePrince","__PirateRaid","__TyrantSkies","__Bones","__Elite","__Others","__Ectoplasm"
 },{})
 
-local aw={
+local av={
 ["Deandre"]="Elite",["Diablo"]="Elite",["Urban"]="Elite",
 
 ["Reborn Skeleton"]="Bones",["Living Zombie"]="Bones",
@@ -1170,492 +1198,499 @@ local aw={
 ["Ship Officer"]="Ectoplasm",["Ship Steward"]="Ectoplasm",
 }local _=
 
-at.SpawnLocations
-local ay=ar.Enemies local _=
+as.SpawnLocations
+local ax=aq.Enemies local _=
 
 ac.UnprotectObject local _=
 ac.ProtectObject local _=
 ac.OriginalIndex
 
-local aC=d.GetBringAttachment()
+local aB=d.GetBringAttachment()
 
+local aC={}
 local aD={}
+
 local aE={}
-
 local aF={}
-local aG={}
 
-av.SpawnLocations=aF
-av.EnemyLocations=aG
+au.SpawnLocations=aE
+au.EnemyLocations=aF
 
-av.PirateRaid=0
+au.PirateRaid=0
 
 do
-local aH=aa({"Ice Admiral","rip_indra"},true)
-local aI={}local aJ=function(
+local aG=aa({"Ice Admiral","rip_indra"},true)
+local aH={}local aI=function(
 
-aJ, aK, aL, aM)
-aI[aJ]={
-BossSpawn=CFrame.new(unpack(aK)),
-LevelReq=aM,
-Quest=aL
+aI, aJ, aK, aL)
+aH[aI]={
+BossSpawn=CFrame.new(unpack(aJ)),
+LevelReq=aL,
+Quest=aK
 }end
 
 
-function av.IsABoss(aK)
-return aI[aK]~=nil
+function au.IsABoss(aJ)
+return aH[aJ]~=nil
 end
 
-function av.EnemyIsBoss(aK)
-return(aK:GetAttribute"IsBoss"or aK:GetAttribute"RaidBoss")and not aH[aK.Name]
+function au.EnemyIsBoss(aJ)
+return(aJ:GetAttribute"IsBoss"or aJ:GetAttribute"RaidBoss")and not aG[aJ.Name]
 end
 
-function av:GetBosses()
-return aI
+function au:GetBosses()
+return aH
 end
 
 
-aJ("The Gorilla King",{-1128,6,-451},{"JungleQuest",CFrame.new(-1598,37,153)},20)
-aJ("Chef",{-1131,14,4080},{"BuggyQuest1",CFrame.new(-1140,4,3829)},55)
-aJ("Yeti",{1185,106,-1518},{"SnowQuest",CFrame.new(1385,87,-1298)},105)
-aJ("Vice Admiral",{-4807,21,4360},{"MarineQuest2",CFrame.new(-5035,29,4326),2},130)
-aJ("Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),1},220)
-aJ("Chief Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),2},230)
-aJ("Swan",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692)},240)
-aJ("Magma Admiral",{-5694,18,8735},{"MagmaQuest",CFrame.new(-5319,12,8515)},350)
-aJ("Fishman Lord",{61350,31,1095},{"FishmanQuest",CFrame.new(61122,18,1567)},425)
-aJ("Wysper",{-7927,5551,-637},{"SkyExp1Quest",CFrame.new(-7861,5545,-381)},500)
-aJ("Thunder God",{-7751,5607,-2315},{"SkyExp2Quest",CFrame.new(-7903,5636,-1412)},575)
-aJ("Cyborg",{6138,10,3939},{"FountainQuest",CFrame.new(5258,39,4052)},675)
+aI("The Gorilla King",{-1128,6,-451},{"JungleQuest",CFrame.new(-1598,37,153)},20)
+aI("Chef",{-1131,14,4080},{"BuggyQuest1",CFrame.new(-1140,4,3829)},55)
+aI("Yeti",{1185,106,-1518},{"SnowQuest",CFrame.new(1385,87,-1298)},105)
+aI("Vice Admiral",{-4807,21,4360},{"MarineQuest2",CFrame.new(-5035,29,4326),2},130)
+aI("Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),1},220)
+aI("Chief Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),2},230)
+aI("Swan",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692)},240)
+aI("Magma Admiral",{-5694,18,8735},{"MagmaQuest",CFrame.new(-5319,12,8515)},350)
+aI("Fishman Lord",{61350,31,1095},{"FishmanQuest",CFrame.new(61122,18,1567)},425)
+aI("Wysper",{-7927,5551,-637},{"SkyExp1Quest",CFrame.new(-7861,5545,-381)},500)
+aI("Thunder God",{-7751,5607,-2315},{"SkyExp2Quest",CFrame.new(-7903,5636,-1412)},575)
+aI("Cyborg",{6138,10,3939},{"FountainQuest",CFrame.new(5258,39,4052)},675)
 
 
-aJ("Diamond",{-1569,199,-31},{"Area1Quest",CFrame.new(-427,73,1835)},750)
-aJ("Jeremy",{2316,449,787},{"Area2Quest",CFrame.new(635,73,919)},850)
-aJ("Orbitus",{-2086,73,-4208},{"MarineQuest3",CFrame.new(-2441,73,-3219)},925)
-aJ("Smoke Admiral",{-5078,24,-5352},{"IceSideQuest",CFrame.new(-6061,16,-4904)},1150)
-aJ("Awakened Ice Admiral",{6473,297,-6944},{"FrostQuest",CFrame.new(5668,28,-6484)},1400)
-aJ("Tide Keeper",{-3711,77,-11469},{"ForgottenQuest",CFrame.new(-3056,240,-10145)},1475)
+aI("Diamond",{-1569,199,-31},{"Area1Quest",CFrame.new(-427,73,1835)},750)
+aI("Jeremy",{2316,449,787},{"Area2Quest",CFrame.new(635,73,919)},850)
+aI("Orbitus",{-2086,73,-4208},{"MarineQuest3",CFrame.new(-2441,73,-3219)},925)
+aI("Smoke Admiral",{-5078,24,-5352},{"IceSideQuest",CFrame.new(-6061,16,-4904)},1150)
+aI("Awakened Ice Admiral",{6473,297,-6944},{"FrostQuest",CFrame.new(5668,28,-6484)},1400)
+aI("Tide Keeper",{-3711,77,-11469},{"ForgottenQuest",CFrame.new(-3056,240,-10145)},1475)
 
 
-aJ("Stone",{-1049,40,6791},{"PiratePortQuest",CFrame.new(-449,109,5950)},1550)
-aJ("Hydra Leader",{5836,1019,-83},{"VenomCrewQuest",CFrame.new(5214,1004,761)},1675)
-aJ("Kilo Admiral",{2904,509,-7349},{"MarineTreeIsland",CFrame.new(2485,74,-6788)},1750)
-aJ("Captain Elephant",{-13393,319,-8423},{"DeepForestIsland",CFrame.new(-13233,332,-7626)},1875)
-aJ("Beautiful Pirate",{5370,22,-89},{"DeepForestIsland2",CFrame.new(-12682,391,-9901)},1950)
-aJ("Cake Queen",{-710,382,-11150},{"IceCreamIslandQuest",CFrame.new(-818,66,-10964)},2175)
+aI("Stone",{-1049,40,6791},{"PiratePortQuest",CFrame.new(-449,109,5950)},1550)
+aI("Hydra Leader",{5836,1019,-83},{"VenomCrewQuest",CFrame.new(5214,1004,761)},1675)
+aI("Kilo Admiral",{2904,509,-7349},{"MarineTreeIsland",CFrame.new(2485,74,-6788)},1750)
+aI("Captain Elephant",{-13393,319,-8423},{"DeepForestIsland",CFrame.new(-13233,332,-7626)},1875)
+aI("Beautiful Pirate",{5370,22,-89},{"DeepForestIsland2",CFrame.new(-12682,391,-9901)},1950)
+aI("Cake Queen",{-710,382,-11150},{"IceCreamIslandQuest",CFrame.new(-818,66,-10964)},2175)
 
-table.freeze(aI)
+table.freeze(aH)
 end
 
 do
-local aH="Island "local aI=function(
+local aG="Island "local aH=function(
+
+aH)
+if string.sub(aH.Name,1,#aG)==aG then
+CurrentRaidIsland=nil
+end end local aI=function(
+
 
 aI)
-if string.sub(aI.Name,1,#aH)==aH then
-CurrentRaidIsland=nil
-end end local aJ=function(
+local aJ=af(aI.Name)
+aF[aJ]=aF[aJ]or{}
 
+local aK=aI.CFrame+Vector3.one*25
+aE[aJ]=aI
 
-aJ)
-local aK=af(aJ.Name)
-aG[aK]=aG[aK]or{}
-
-local aL=aJ.CFrame+Vector3.one*25
-aF[aK]=aJ
-
-if not table.find(aG[aK],aL)then
-table.insert(aG[aK],aL)
+if not table.find(aF[aJ],aK)then
+table.insert(aF[aJ],aK)
 end end
 
 
-for aK,aL in y:GetChildren()do aJ(aL)end
-an(y.ChildAdded,aJ)
-an(z.ChildAdded,aI)
-end local aI=function(
+for aJ,aK in y:GetChildren()do aI(aK)end
+an(y.ChildAdded,aI)
+an(z.ChildAdded,aH)
+end local aH=function(
 
 
 
 
 
-aI, aJ, aK, aL, aM)
-while aJ.Parent==v and X(_,aL)and aM.Parent==aJ do
-local aN=aD[aK].Position
+aH, aI, aJ, aK, aL)
+while aI.Parent==v and X(_,aK)and aL.Parent==aI do
+local aM=aC[aJ].Position
 
-if(aN-aM.Position).Magnitude<=e.BringDistance then
-if aI.Position~=aN then
-aI.Position=aN
+if(aM-aL.Position).Magnitude<=e.BringDistance then
+if aH.Position~=aM then
+aH.Position=aM
 end
 else
 break
 end
 
 task.wait(0.25)
-end end local aJ=function(
+end end local aI=function(
 
 
-aJ)
-if aE[aJ]then return end
-aE[aJ]=true
+aI)
+if aD[aI]then return end
+aD[aI]=true
 
-local aK=aJ.Name
-local aL=aJ.Humanoid
-local aM=aL.RootPart
+local aJ=aI.Name
+local aK=aI.Humanoid
+local aL=aK.RootPart
 
-local aN=aC:Clone()
-local aO=aN.AlignPosition
+local aM=aB:Clone()
+local aN=aM.AlignPosition
 
-aN.Parent=aM
-aI(aO,aJ,aK,aL,aM)
+aM.Parent=aL
+aH(aN,aI,aJ,aK,aL)
 
-aE[aJ]=nil
+aD[aI]=nil
 
-if aN then
-aN:Destroy()
+if aM then
+aM:Destroy()
 end end
 
 
-function av.GetEnemy(aK)
-if type(aK)=="table"then
-return av:GetClosest(aK)
+function au.GetEnemy(aJ)
+if type(aJ)=="table"then
+return au:GetClosest(aJ)
 else
-return av:GetEnemyByTag(aK)
+return au:GetEnemyByTag(aJ)
 end
 end
 
-function av.IsSpawned(aK)
-local aL=aF[aK]
+function au.IsSpawned(aJ)
+local aK=aE[aJ]
 
-if aL and aL.Parent==y then
-return aL:GetAttribute"Active"
+if aK and aK.Parent==y then
+return aK:GetAttribute"Active"
 else
-return av:GetEnemyByTag(aK)~=nil
+return au:GetEnemyByTag(aJ)~=nil
 end
 end
 
-function av:GetMobsName(aK)
-local aL={}
-for aM,aN in aw do
-if aN==aK then
-table.insert(aL,aM)
+function au:GetMobsName(aJ)
+local aK={}
+for aL,aM in av do
+if aM==aJ then
+table.insert(aK,aL)
 end
 end
-return aL
+return aK
 end
 
-function av.BringMobs(aK,aL,aM)
-local aN=X(aK)and aK.Humanoid.RootPart
-if not aN then return end
+function au.BringMobs(aJ,aK,aL)
+local aM=X(aJ)and aJ.Humanoid.RootPart
+if not aM then return end
 
-local aO=aK.Name
+local aN=aJ.Name
 W(9e9)
 
 if not e.BringMobs then
-if not aD[aO]then
-aD[aO]=aN.CFrame
+if not aC[aN]then
+aC[aN]=aM.CFrame
 end
 
-aN.CFrame=aD[aO]
+aM.CFrame=aC[aN]
 return nil
 end
 
-local aP=au.PlayerManager:GetRootPartPosition()
+local aO=at.PlayerManager:GetRootPartPosition()
 
-local aQ=aL or aN.CFrame
-local aR=aM or e.BringDistance
+local aP=aK or aM.CFrame
+local aQ=aL or e.BringDistance
 
-if not aD[aO]or(aQ.Position-aD[aO].Position).Magnitude>25 then
-aD[aO]=aQ
+if not aC[aN]or(aP.Position-aC[aN].Position).Magnitude>25 then
+aC[aN]=aP
 end
 
-for aS,aT in av:GetTagged(aO)do
-if not aT:FindFirstChild"CharacterReady"then continue end
-if aT.Parent~=v or aT.Name~=aO then continue end
+for aR,aS in au:GetTagged(aN)do
+if not aS:FindFirstChild"CharacterReady"then continue end
+if aS.Parent~=v or aS.Name~=aN then continue end
 
-local aU=X(aT)and aT.Humanoid.RootPart
-if not aU then continue end
+local aT=X(aS)and aS.Humanoid.RootPart
+if not aT then continue end
 
-if(aP-aU.Position).Magnitude<aR then
-task.spawn(aJ,aT)
+if(aO-aT.Position).Magnitude<aQ then
+task.spawn(aI,aS)
 end
 end
 end
 
-function av:GetTagged(aK)
-return self[`__{aK}`]or self.__Others[aK]
+function au:GetTagged(aJ)
+return self[`__{aJ}`]or self.__Others[aJ]
 end
 
-function av:GetEnemyByTag(aK)
-local aL=ay[aK]
+function au:GetEnemyByTag(aJ)
+local aK=ax[aJ]
+
+if aK and aK.Parent~=nil and X(aK)then
+return aK
+end
+
+local aL=self:GetTagged(aJ)
+if not aL then return end
+
+for aM=1,#aL do
+if X(aL[aM])then
+return aL[aM]
+end
+end
+end
+
+function au:GetClosest(aJ)
+local aK=table.concat(aJ,"_")
+local aL=ax[aK]
 
 if aL and aL.Parent~=nil and X(aL)then
 return aL
 end
 
-local aM=self:GetTagged(aK)
-if not aM then return end
+local aM,aN=math.huge
 
-for aN=1,#aM do
-if X(aM[aN])then
-return aM[aN]
+for aO=1,#aJ do
+local aP=self:GetClosestByTag(aJ[aO])
+local aQ=X(aP)and aP.Humanoid.RootPart
+local aR=aQ and D:DistanceFromCharacter(aQ.Position)
+
+if aQ and aR<=aM then
+aM,aN=aR,aP
 end
 end
+
+if aN then
+ax[aK]=aN
+return aN
+end
 end
 
-function av:GetClosest(aK)
-local aL=table.concat(aK,"_")
-local aM=ay[aL]
+function au:GetClosestByTag(aJ)
+local aK=ax[aJ]
 
-if aM and aM.Parent~=nil and X(aM)then
-return aM
+if aK and aK.Parent~=nil and X(aK)then
+return aK
 end
 
+local aL=self:GetTagged(aJ)
+
+if aL and#aL>0 then
+local aM=at.PlayerManager:GetRootPartPosition()
 local aN,aO=math.huge
 
-for aP=1,#aK do
-local aQ=self:GetClosestByTag(aK[aP])
+for aP=1,#aL do
+local aQ=aL[aP]
 local aR=X(aQ)and aQ.Humanoid.RootPart
-local aS=aR and D:DistanceFromCharacter(aR.Position)
+if not aR then continue end
 
-if aR and aS<=aN then
+local aS=(aM-aR.Position).Magnitude
+
+if aS<=50 then
+ax[aJ]=aQ
+return aQ
+elseif aS<=aN then
 aN,aO=aS,aQ
 end
 end
 
 if aO then
-ay[aL]=aO
+ax[aJ]=aO
 return aO
-end
-end
-
-function av:GetClosestByTag(aK)
-local aL=ay[aK]
-
-if aL and aL.Parent~=nil and X(aL)then
-return aL
-end
-
-local aM=self:GetTagged(aK)
-
-if aM and#aM>0 then
-local aN=au.PlayerManager:GetRootPartPosition()
-local aO,aP=math.huge
-
-for aQ=1,#aM do
-local aR=aM[aQ]
-local aS=X(aR)and aR.Humanoid.RootPart
-if not aS then continue end
-
-local aT=(aN-aS.Position).Magnitude
-
-if aT<=50 then
-ay[aK]=aR
-return aR
-elseif aT<=aO then
-aO,aP=aT,aR
-end
-end
-
-if aP then
-ay[aK]=aP
-return aP
 end
 end
 end
 
 do
-local aK=Vector3.new(-5556,314,-2988)
-local aL=av.__Others
-local aM=as.Sea local aN=function(
+local aJ=Vector3.new(-5556,314,-2988)
+local aK=au.__Others
+local aL=ar.Sea local aM=function(
 
-aN, aO)
-if table.find(aN,aO)then return end
+aM, aN)
+if table.find(aM,aN)then return end
 
-local aP=aO:WaitForChild"Humanoid"
+local aO=aN:WaitForChild"Humanoid"
 
-if aP and aP.Health>0 then
-table.insert(aN,aO)
-aP.Died:Once(function()
-table.remove(aN,table.find(aN,aO))
+if aO and aO.Health>0 then
+table.insert(aM,aN)
+aO.Died:Once(function()
+table.remove(aM,table.find(aM,aN))
 end)
+end end local aN=function(
+
+
+aN)
+if aN.Name=="rip_indra True Form"or aN.Name=="Blank Buddy"then return end
+
+local aO=aN:WaitForChild("Humanoid",600)
+if not aO or aO.Health<=0 then return end
+
+local aP=aN:WaitForChild"HumanoidRootPart"
+
+if aP and(aP.Position-aJ).Magnitude<=750 then
+task.spawn(aM,au.__PirateRaid,aN)
+au.PirateRaid=tick()
 end end local aO=function(
 
 
 aO)
-if aO.Name=="rip_indra True Form"or aO.Name=="Blank Buddy"then return end
+local aP=aO.Name
+local aQ=`__{aP}`
 
-local aP=aO:WaitForChild("Humanoid",600)
-if not aP or aP.Health<=0 then return end
+aK[aP]=aK[aP]or{}
+task.spawn(aM,aK[aP],aO)
 
-local aQ=aO:WaitForChild"HumanoidRootPart"
-
-if aQ and(aQ.Position-aK).Magnitude<=750 then
-task.spawn(aN,av.__PirateRaid,aO)
-av.PirateRaid=tick()
-end end local aP=function(
-
-
-aP)
-local aQ=aP.Name
-local aR=`__{aQ}`
-
-aL[aQ]=aL[aQ]or{}
-task.spawn(aN,aL[aQ],aP)
-
-if aM==3 then
-task.spawn(aO,aP)
+if aL==3 then
+task.spawn(aN,aO)
 end
 
-if av[aR]then
-task.spawn(aN,av[aR],aP)
-elseif aw[aQ]then
-task.spawn(aN,av[`__{aw[aQ]}`],aP)
+if au[aQ]then
+task.spawn(aM,au[aQ],aO)
+elseif av[aP]then
+task.spawn(aM,au[`__{av[aP]}`],aO)
 end end
 
 
-for aQ,aR in h:GetTagged"BasicMob"do aP(aR)end
-table.insert(c,h:GetInstanceAddedSignal"BasicMob":Connect(aP))
+for aP,aQ in h:GetTagged"BasicMob"do aO(aQ)end
+table.insert(c,h:GetInstanceAddedSignal"BasicMob":Connect(aO))
 end
 
-return av
+return au
 end)()
 
-au.ToolService=(function()
-local av={}
+at.ToolService=(function()
+local au={}
 
-local aw=au.Network.InvokeCommF
-local ay=ar.Tools
-local az=25000 local aA=function(
+local av=at.Network.InvokeCommF
+local ax=aq.Tools
+local ay=25000 local az=function(
 
-aA)
-local aB=D.Character:FindFirstChildOfClass"Tool"
+az)
+local aA=D.Character:FindFirstChildOfClass"Tool"
 
-if aB and aB.ToolTip==aA then
-return aB
+if aA and aA.ToolTip==az then
+return aA
 end
 
-for aC,aD in D.Backpack:GetChildren()do
-if aD:IsA"Tool"and aD.ToolTip==aA then
-return aD
+for aB,aC in D.Backpack:GetChildren()do
+if aC:IsA"Tool"and aC.ToolTip==az then
+return aC
 end
-end end local aB=function()
+end end local aA=function()
 
 
 
-if H.Value<az then return end
+if H.Value<ay then return end
 
-aw("BuyHaki","Buso")end local aC=function(
+av("BuyHaki","Buso")end local aB=function(
+
+
+aB, aC)
+return aB.ToolTip=="JobTool"and aB:GetAttribute"JobId"==aC end local aC=function(
 
 
 aC, aD)
-return aC.ToolTip=="JobTool"and aC:GetAttribute"JobId"==aD end local aD=function(
+local aE=D.Character
+if not X(aE)then return end
 
+local aF=if aD then`toolTip_{aC}`else aC
+local aG=ax[aF]
 
-aD, aE)
-local aF=D.Character
-if not X(aF)then return end
-
-local aG=if aE then`toolTip_{aD}`else aD
-local aH=ay[aG]
-
-if aH and(aH.Parent==aF or aH.Parent==D.Backpack)then
-return aH
-end
-
-local aI=if aE then aA(aD)else(aF:FindFirstChild(aD)or D.Backpack:FindFirstChild(aD))
-
-if aI then
-ay[aG]=aI
-return aI
-end end
-
-
-function av.GetToolMastery(aE,...)
-local aF=aD(aE,...)
-return aF and aF:GetAttribute"Level"or 0
-end
-
-function av.EquipJobTool(aE)
-local aF=D.Character
-if not X(aF)then return end
-
-local aG=aF:FindFirstChildOfClass"Tool"
-
-if aG and aC(aG,aE)then
+if aG and(aG.Parent==aE or aG.Parent==D.Backpack)then
 return aG
 end
 
-for aH,aI in D.Backpack:GetChildren()do
-if aI:IsA"Tool"and aC(aI,aE)then
-_(aI)
-return aI
-end
-end
+local aH=if aD then az(aC)else(aE:FindFirstChild(aC)or D.Backpack:FindFirstChild(aC))
+
+if aH then
+ax[aF]=aH
+return aH
+end end
+
+
+function au.GetToolMastery(aD,...)
+local aE=aC(aD,...)
+return aE and aE:GetAttribute"Level"or 0
 end
 
-function av.VerifyTool(aE,...)
-return aD(aE,...)~=nil
-end
-
-function av.EnableBuso()
+function au.EquipJobTool(aD)
 local aE=D.Character
-if X(aE)and not aE:FindFirstChild"HasBuso"then
-return if aE:HasTag"Buso"then aw"Buso"else aB()
+if not X(aE)then return end
+
+local aF=aE:FindFirstChildOfClass"Tool"
+
+if aF and aB(aF,aD)then
+return aF
+end
+
+for aG,aH in D.Backpack:GetChildren()do
+if aH:IsA"Tool"and aB(aH,aD)then
+_(aH)
+return aH
+end
 end
 end
 
-av.EquipTool=ap
+function au.VerifyTool(aD,...)
+return aC(aD,...)~=nil
+end
 
-return av
+function au.EnableBuso()
+local aD=D.Character
+if X(aD)and not aD:FindFirstChild"HasBuso"then
+return if aD:HasTag"Buso"then av"Buso"else aA()
+end
+end
+
+au.EquipTool=ap
+
+return au
 end)()
 
-au.FastAttack=(function()
-local av={}
+at.FastAttack=(function()
+local au={
+attackPlayers=true,
+attackMobs=true,
+}
 
-local aw={
+local av={
 ["Blox Fruit"]=35,
 ["Melee"]=40,
 ["Sword"]=40,
 ["Gun"]=300,
 }
 
-local ay={
+local ax={
 ["Skull Guitar"]="TAP",
 ["Bazooka"]="Position",
 ["Cannon"]="Position",
 ["Dragonstorm"]="Overheat"
 }
 
-local az=aa({"Light-Light","Ice-Ice"},true)
+local ay=aa({"Light-Light","Ice-Ice"},true)
 
-local aA=au.Network
+local az=at.Network
 
-local aB=d.SendLeftClickRemote
-local aC=d.CheckAttackDebounce
-local aD=d.GetPartBoundsInBox
-local aE=d.SendHitsToServer
-local aF=d.PlayHitAnimation
-local aG=d.SetHitsCooldown
-local aH=d.IsAttackWeapon
-local aI=d.NewDebounce
-local aJ=d.GetMaxHits
-local aK=d.CheckStun
+local aA=d.SendLeftClickRemote
+local aB=d.CheckAttackDebounce
+local aC=d.GetPartBoundsInBox
+local aD=d.SendHitsToServer
+local aE=d.PlayHitAnimation
+local aF=d.SetHitsCooldown
+local aG=d.IsAttackWeapon
+local aH=d.NewDebounce
+local aI=d.GetMaxHits
+local aJ=d.CheckStun
 
-local aL=d.CanGetGunValidator
-local aM=d.GetGunValidator
+local aK=d.CanGetGunValidator
+local aL=d.GetGunValidator
 
-local aN=aA:RemoteEvent"ShootGunEvent"
+local aM=az:RemoteEvent"ShootGunEvent"
 
-local aO=0.4
-local aP=0
-local aQ=4
+local aN=0.4
+local aO=0
+local aP=4
+local aQ=0
 local aR=0
-local aS=0
 
-d.SetRigisterAttackEvent(aA:RemoteEvent"RegisterAttack")
-d.SetRigisterHitEvent(aA:RemoteEvent"RegisterHit")local aT=function(
+d.SetRigisterAttackEvent(az:RemoteEvent"RegisterAttack")
+d.SetRigisterHitEvent(az:RemoteEvent"RegisterHit")local aS=function(
+
+aS)
+return if aS==t then au.attackPlayers else au.attackMobs end local aT=function(
+
 
 aT, aU, aV)
-local aW=aJ()
+local aW=aI()
 local aX={}
 local aY={}
 
@@ -1664,8 +1699,11 @@ local aY={}
 
 for aZ,a_ in aV do
 local a0=a_.Parent
-if a0.Parent.Parent~=workspace or not X(a0)then continue end
-if a0.Parent==t and(a0==D.Character or not ag(a0))then continue end
+local a1=a0.Parent
+
+if not aS(a1)then continue end
+if a1.Parent~=workspace or not X(a0)then continue end
+if a1==t and(a0==D.Character or not ag(a0))then continue end
 
 if not aY[a0]then
 table.insert(aX,{a0,a_})
@@ -1678,20 +1716,20 @@ end
 end
 
 if#aX>0 then
-aF(aT)
-aG(aU)
-aE(aX)
+aE(aT)
+aF(aU)
+aD(aX)
 end end local aU=function()
 
 
 
-if aR>=aQ or(tick()-aP)>=aO then
-aR=0
+if aQ>=aP or(tick()-aO)>=aN then
+aQ=0
 end
 
-aP=tick()
-aR+=1
-return aR end local aV=function(
+aO=tick()
+aQ+=1
+return aQ end local aV=function(
 
 
 aV)
@@ -1703,7 +1741,7 @@ aX=aX.Parent
 aW=aW.Parent
 end
 
-if aX==workspace and X(aW)then
+if aX==workspace and X(aW)and aS(aW.Parent)then
 return true
 end
 
@@ -1717,16 +1755,16 @@ for aZ,a_ in aW do
 if a_:IsDescendantOf(aY)then continue end
 if not aV(a_)then continue end
 
-local a0=au.PlayerManager:GetRootPartPosition()
+local a0=at.PlayerManager:GetRootPartPosition()
 local a1=(a_.Position-a0).Unit
 
-aB(aX,a1,aU())
+aA(aX,a1,aU())
 return nil
 end end
 
 
-function av:ShootInTarget(aX)
-if(tick()-aS)<0 then return end
+function au:ShootInTarget(aX)
+if(tick()-aR)<0 then return end
 
 local aY=X(D.Character)and D.Character:FindFirstChildOfClass"Tool"
 if not aY or aY.ToolTip~="Gun"then return end
@@ -1734,22 +1772,22 @@ if not aY or aY.ToolTip~="Gun"then return end
 local aZ=aY:FindFirstChild"Cooldown"
 if not aZ then return end
 
-if not aL then
+if not aK then
 return nil
 end
 
-local a_=ay[aY.Name]
+local a_=ax[aY.Name]
 
 if a_=="Position"or a_=="TAP"and aY:FindFirstChild"RemoteEvent"then
-aS=tick()+aZ.Value
+aR=tick()+aZ.Value
 
 aY:SetAttribute("LocalTotalShots",(aY:GetAttribute"LocalTotalShots"or 0)+1)
-o:FireServer(aM())
+o:FireServer(aL())
 
 if a_=="TAP"then
 aY.RemoteEvent:FireServer("TAP",aX)
 else
-aN:FireServer(aX)
+aM:FireServer(aX)
 end
 end
 end
@@ -1765,18 +1803,18 @@ if not aZ then return end
 
 local a_=aX:FindFirstChildOfClass"Tool"
 
-if not a_ or not aH(a_)then
+if not a_ or not aG(a_)then
 return nil
 end
 
-if aC(a_)and aK(a_)then
+if aB(a_)and aJ(a_)then
 local a0=a_.ToolTip
-local a1=aI(a_)
+local a1=aH(a_)
 
-local a2=aD(a_,aZ.CFrame,aw[a0]*2)
+local a2=aC(a_,aZ.CFrame,av[a0]*2)
 if#a2==0 then return end
 
-if a0=="Blox Fruit"and not az[a_.Name]then
+if a0=="Blox Fruit"and not ay[a_.Name]then
 local a3=a_:FindFirstChild"LeftClickRemote"
 
 if a3 then
@@ -1792,257 +1830,257 @@ end
 end
 end)
 
-return av
-end)()
-
 return au
 end)()
 
-local au=0
-local av={}
+return at
+end)()
 
-function at.DisableCanTouch()
-au=tick()
+local at=0
+local au={}
+
+function as.DisableCanTouch()
+at=tick()
 end
 
-function at.RemoveBasePartsCollision(aw)
-local ay=aw:GetDescendants()
+function as.RemoveBasePartsCollision(av)
+local ax=av:GetDescendants()
 
-for az=1,#ay do
-local aA=ay[az]
-if aA:IsA"BasePart"and aA.CanCollide then
-aA.CanCollide=false
+for ay=1,#ax do
+local az=ax[ay]
+if az:IsA"BasePart"and az.CanCollide then
+az.CanCollide=false
 end
 end
 end
 
-local aw=at.Services.Inventory.MasteryRequirements
+local av=as.Services.Inventory.MasteryRequirements
 
-function at.UseSkills(ay,az)
-if al(ay)>=60 then return end
+function as.UseSkills(ax,ay)
+if al(ax)>=60 then return end
 
-local aA=D.Character and D.Character:FindFirstChildOfClass"Tool"
+local az=D.Character and D.Character:FindFirstChildOfClass"Tool"
 
-if aA then
-local aB=aA:GetAttribute"Level"or 0
-local aC=aw[aA.Name]
+if az then
+local aA=az:GetAttribute"Level"or 0
+local aB=av[az.Name]
 
-if aC==nil and aA:FindFirstChild"Data"then
-local aD,aE=pcall(require,aA.Data)
+if aB==nil and az:FindFirstChild"Data"then
+local aC,aD=pcall(require,az.Data)
 
-if aD and type(aE)=="table"then
-aw[aA.Name]=aE.Lvl or false
+if aC and type(aD)=="table"then
+av[az.Name]=aD.Lvl or false
 else
-aw[aA.Name]=false
+av[az.Name]=false
 end
 end
 
-for aD,aE in az do
-if not aE then continue end
-if aC and(not aC[aD]or aB<aC[aD])then continue end
+for aC,aD in ay do
+if not aD then continue end
+if aB and(not aB[aC]or aA<aB[aC])then continue end
 
-local aF=av[aD]
+local aE=au[aC]
 
-if aE and(tick()-(aF or 0))>=0 then
-g:SendKeyEvent(true,aD,false,game)
-g:SendKeyEvent(false,aD,false,game)
-av[aD]=tick()+ad.SKILL_COOLDOWN
+if aD and(tick()-(aE or 0))>=0 then
+g:SendKeyEvent(true,aC,false,game)
+g:SendKeyEvent(false,aC,false,game)
+au[aC]=tick()+ad.SKILL_COOLDOWN
 end
 end
 end
 end
 
-at.TweenBodyVelocity=(function()
-local ay=ac.ClearNoclipObjects
-local az=ac.AddNoclipObject
-local aA=ac.UnprotectObject
-local aB=ac.ProtectObject
-local aC=ac.OriginalIndex
+as.TweenBodyVelocity=(function()
+local ax=ac.ClearNoclipObjects
+local ay=ac.AddNoclipObject
+local az=ac.UnprotectObject
+local aA=ac.ProtectObject
+local aB=ac.OriginalIndex
 
-local aD=at.Services.GoodSignal.Signals.BvChanged
+local aC=as.Services.GoodSignal.Signals.BvChanged
 
-local aE=Instance.new"BodyVelocity"
-aE.Velocity=Vector3.zero
-aE.MaxForce=Vector3.new(math.huge,math.huge,math.huge)
-aE.P=1000
+local aD=Instance.new"BodyVelocity"
+aD.Velocity=Vector3.zero
+aD.MaxForce=Vector3.new(math.huge,math.huge,math.huge)
+aD.P=1000
 
-local aF=f.tween_bodyvelocity
+local aE=f.tween_bodyvelocity
 
-if aF then
-aA(aF)
-aF.Parent=nil
-aF:Destroy()
+if aE then
+az(aE)
+aE.Parent=nil
+aE:Destroy()
 end
 
-aB(aE)
-f.tween_bodyvelocity=aE
+aA(aD)
+f.tween_bodyvelocity=aD
 
-local aG,aH=game.IsA,game.FindFirstChild
-local aI=false
+local aF,aG=game.IsA,game.FindFirstChild
+local aH=false
 
-local aJ,aK,aL={},{},{}do
-ac.SetCanCollideObjects(aK)
-ac.SetCanTouchObjects(aL)local aM=function(
+local aI,aJ,aK={},{},{}do
+ac.SetCanCollideObjects(aJ)
+ac.SetCanTouchObjects(aK)local aL=function(
+
+aL)
+if aL~=aD and aF(aL,"BasePart")and(aL.CanCollide or aL.CanTouch)then
+table.insert(aI,aL)
+ay(aL)
+
+if aB(aL,"CanCollide")then aJ[aL]=true end
+if aB(aL,"CanTouch")then aK[aL]=true end
+end end local aM=function(
+
 
 aM)
-if aM~=aE and aG(aM,"BasePart")and(aM.CanCollide or aM.CanTouch)then
-table.insert(aJ,aM)
-az(aM)
+local aN=table.find(aI,aM)
 
-if aC(aM,"CanCollide")then aK[aM]=true end
-if aC(aM,"CanTouch")then aL[aM]=true end
+if aN then
+table.remove(aI,aN)
 end end local aN=function(
 
 
 aN)
-local aO=table.find(aJ,aN)
+if not aN then return end
+table.clear(aI)
 
-if aO then
-table.remove(aJ,aO)
-end end local aO=function(
+for aO,aP in aN:GetDescendants()do aL(aP)end
+aN.DescendantAdded:Connect(aL)
+aN.DescendantRemoving:Connect(aM)
 
-
-aO)
-if not aO then return end
-table.clear(aJ)
-
-for aP,aQ in aO:GetDescendants()do aM(aQ)end
-aO.DescendantAdded:Connect(aM)
-aO.DescendantRemoving:Connect(aN)
-
-aO:WaitForChild("Humanoid",9e9).Died:Wait()
-table.clear(aJ)
-ay()end
+aN:WaitForChild("Humanoid",9e9).Died:Wait()
+table.clear(aI)
+ax()end
 
 
-an(D.CharacterAdded,aO)
-task.spawn(aO,D.Character)
-end local aM=function(
+an(D.CharacterAdded,aN)
+task.spawn(aN,D.Character)
+end local aL=function(
 
-aM)
-if not aI and f.OnFarm then
-aI=true
+aL)
+if not aH and f.OnFarm then
+aH=true
 end
 
 if f.OnFarm and not D:HasTag"Teleporting"then
 D:AddTag"Teleporting"
-aI=true
-elseif aI and not f.OnFarm and D:HasTag"Teleporting"then
+aH=true
+elseif aH and not f.OnFarm and D:HasTag"Teleporting"then
 D:RemoveTag"Teleporting"
-aI=false
+aH=false
 end
 
 if f.OnFarm then
-for aN=1,#aJ do
-local aO=aJ[aN]
-local aP=if(tick()-au)<=1 then false else true
+for aM=1,#aI do
+local aN=aI[aM]
+local aO=if(tick()-at)<=1 then false else true
 
-if aL[aO]and aO.CanTouch~=aP then
-aO.CanTouch=aP
+if aK[aN]and aN.CanTouch~=aO then
+aN.CanTouch=aO
 end
-if aK[aO]and aO.CanCollide then
-aO.CanCollide=false
-end
-end
-elseif aM.PrimaryPart and(not aM.PrimaryPart.CanCollide or not aM.PrimaryPart.CanTouch)then
-for aN=1,#aJ do
-local aO=aJ[aN]
-
-if aK[aO]then
-aO.CanCollide=true
-end
-if aL[aO]then
-aO.CanTouch=true
+if aJ[aN]and aN.CanCollide then
+aN.CanCollide=false
 end
 end
-end end local aN=function(
+elseif aL.PrimaryPart and(not aL.PrimaryPart.CanCollide or not aL.PrimaryPart.CanTouch)then
+for aM=1,#aI do
+local aN=aI[aM]
+
+if aJ[aN]then
+aN.CanCollide=true
+end
+if aK[aN]then
+aN.CanTouch=true
+end
+end
+end end local aM=function(
 
 
-aN)
-local aO=aH(aN,"UpperTorso")
-local aP=aH(aN,"Humanoid")
-local aQ=f.tween_bodyvelocity
+aM)
+local aN=aG(aM,"UpperTorso")
+local aO=aG(aM,"Humanoid")
+local aP=f.tween_bodyvelocity
 
-local aR=if f.OnFarm and aO and aP and aP.Health>0 then aO else nil
+local aQ=if f.OnFarm and aN and aO and aO.Health>0 then aN else nil
 
-if aC(aQ,"Parent")~=aR then
-aQ.Parent=aR
-aD:Fire(aR)
+if aB(aP,"Parent")~=aQ then
+aP.Parent=aQ
+aC:Fire(aQ)
 end
 
-local aS=aC(aQ,"Velocity")
+local aR=aB(aP,"Velocity")
 
-if aS~=Vector3.zero and(not aP or not aP.SeatPart or not f.OnFarm)then
-aQ.Velocity=Vector3.zero
+if aR~=Vector3.zero and(not aO or not aO.SeatPart or not f.OnFarm)then
+aP.Velocity=Vector3.zero
 end end
 
 
 an(C,function()
-local aO=D.Character
-if X(aO)then
-aN(aO)
-aM(aO)
+local aN=D.Character
+if X(aN)then
+aM(aN)
+aL(aN)
 end
 end)
 
-return aE
+return aD
 end)()
 
-at.RunModules=(function()
-local ay={}local az=function(
+as.RunModules=(function()
+local ax={}local ay=function(
 
-az, aA)
-ay[az]=aA end
+ay, az)
+ax[ay]=az end
 
 
-az("InitializeQuests",function(aA,aB)
-local aC=aB.GetQuestTasks
-local aD=aB.QuestsLookup
-local aE=aB.Quests
+ay("InitializeQuests",function(az,aA)
+local aB=aA.GetQuestTasks
+local aC=aA.QuestsLookup
+local aD=aA.Quests
 
-local aF=({{0,700},{700,1500},{1500,math.huge}})[as.Sea]
-local aG=aa({"BartiloQuest","MarineQuest","CitizenQuest"},true)
+local aE=({{0,700},{700,1500},{1500,math.huge}})[ar.Sea]
+local aF=aa({"BartiloQuest","MarineQuest","CitizenQuest"},true)
 
-for aH,aI in aA do
-if aG[aH]then continue end
+for aG,aH in az do
+if aF[aG]then continue end
 
-for aJ,aK in aI do
-local aL=aK.LevelReq
+for aI,aJ in aH do
+local aK=aJ.LevelReq
 
-if aL>=aF[1]and aL<aF[2]then
-local aM,aN=aC(aK)
-local aO=aM[1]
+if aK>=aE[1]and aK<aE[2]then
+local aL,aM=aB(aJ)
+local aN=aL[1]
 
-local aP={
-QuestName=aH,
-QuestIndex=aJ,
+local aO={
+QuestName=aG,
+QuestIndex=aI,
 Quest={
-EnemyLocations=aN,
-LevelReq=aL,
-Targets=aM
+EnemyLocations=aM,
+LevelReq=aK,
+Targets=aL
 }
 }
 
-aD[aO]=aP
-table.insert(aE,aP)
+aC[aN]=aO
+table.insert(aD,aO)
 end
 end
 end
 
-table.sort(aE,function(aH,aI)
-return aH.Quest.LevelReq<aI.Quest.LevelReq
+table.sort(aD,function(aG,aH)
+return aG.Quest.LevelReq<aH.Quest.LevelReq
 end)
 end)
 
-az("FarmQueue",function(aA)local aB=function()
+ay("FarmQueue",function(az)local aA=function()
 
-for aB,aC in aA do
-e.RunningOption=aC.Name
-local aD=aC.Function()
-if not aD then continue end
+for aA,aB in az do
+e.RunningOption=aB.Name
+local aC=aB.Function()
+if not aC then continue end
 
-if type(aD)=="string"then
-e.RunningMethod=aD
+if type(aC)=="string"then
+e.RunningMethod=aC
 end
 
 return true
@@ -2055,256 +2093,255 @@ while task.wait(e.SmoothMode and 0.25 or 0)do
 if f.teleporting then
 f.OnFarm=true
 elseif e.IgnoreErrors then
-local aC,aD=pcall(aB)
+local aB,aC=pcall(aA)
 
-if not aC then
-warn(`redz Hub Error in {e.RunningOption} -> {aD}`)
+if not aB then
+warn(`redz Hub Error in {e.RunningOption} -> {aC}`)
 end
 
-f.OnFarm=(not aC and f.OnFarm)or aD
+f.OnFarm=(not aB and f.OnFarm)or aC
 else
-f.OnFarm=if aB()then true else false
+f.OnFarm=if aA()then true else false
 end
 end
 end)
 
-az("Translator",function(aA,aB)
-local aC=aA.MakeTab
+ay("Translator",function(az,aA)
+local aB=az.MakeTab
 
 
-local aE={}
-local aF={}local aG=function(
+local aD={}
+local aE={}local aF=function(
 
-aG)
-local aH=aB[aG.Title]
+aF)
+local aG=aA[aF.Title]
 
-if aH then
-if aH[1]~=nil then
-aG:SetTitle(aH[1])
+if aG then
+if aG[1]~=nil then
+aF:SetTitle(aG[1])
 end
 
-if aH[2]~=nil then
-aG:SetDesc(aH[2])
+if aG[2]~=nil then
+aF:SetDesc(aG[2])
 end
 end
 
-return aG end
+return aF end
 
 
-function aF:AddSection(aH)
-return aG(aE["AddSection"](self,aH))
+function aE:AddSection(aG)
+return aF(aD["AddSection"](self,aG))
 end
 
-function aF:AddParagraph(aH,aI)
-return aG(aE["AddParagraph"](self,aH,aI))
+function aE:AddParagraph(aG,aH)
+return aF(aD["AddParagraph"](self,aG,aH))
 end
 
-function aF:AddToggle(aH)
-return aG(aE["AddToggle"](self,aH))
+function aE:AddToggle(aG)
+return aF(aD["AddToggle"](self,aG))
 end
 
-function aF:AddDropdown(aH)
-return aG(aE["AddDropdown"](self,aH))
+function aE:AddDropdown(aG)
+return aF(aD["AddDropdown"](self,aG))
 end
 
-function aF:AddSlider(aH)
-return aG(aE["AddSlider"](self,aH))
+function aE:AddSlider(aG)
+return aF(aD["AddSlider"](self,aG))
 end
 
-function aF:AddButton(aH)
-return aG(aE["AddButton"](self,aH))
+function aE:AddButton(aG)
+return aF(aD["AddButton"](self,aG))
 end
 
-function aF:AddTextBox(aH)
-return aG(aE["AddTextBox"](self,aH))
+function aE:AddTextBox(aG)
+return aF(aD["AddTextBox"](self,aG))
 end
 
-aA.MakeTab=function(aH,aI)
-local aJ=aI[1]or aI.Name or aI.Title
+az.MakeTab=function(aG,aH)
+local aI=aH[1]or aH.Name or aH.Title
 
-if aB[aJ]then
-aI[1]=aB[aJ]
+if aA[aI]then
+aH[1]=aA[aI]
 end
 
-local aK=aC(aH,aI)
+local aJ=aB(aG,aH)
 
-for aL,aM in aF do
-aE[aL]=aK[aL]
-aK[aL]=aM
+for aK,aL in aE do
+aD[aK]=aJ[aK]
+aJ[aK]=aL
 end
 
-return aK
+return aJ
 end
 end)
 
-az("OptionsPlugin",function(aA,aB)
-local aC={}
+ay("OptionsPlugin",function(az,aA)
+local aB={}
 
-function aC.Toggle(aD,aE,aF)
-local aG=aD:AddToggle{
-Name=aE[1],
-Default=if type(aE[2])~="string"then aE[2]else nil,
-Description=aE[if type(aE[2])=="string"then 2 else 3],
-Callback=function(aG)aA[aF]=aG end,
-Flag=aF
+function aB.Toggle(aC,aD,aE)
+local aF=aC:AddToggle{
+Name=aD[1],
+Default=if type(aD[2])~="string"then aD[2]else nil,
+Description=aD[if type(aD[2])=="string"then 2 else 3],
+Callback=function(aF)az[aE]=aF end,
+Flag=aE
 }
 
-aB[aF]=aG
+aA[aE]=aF
+return aF
+end
+
+return aB
+end)
+
+ay("TweenManager",function()
+local az={}
+az.__index=az
+
+local aA={}
+local aB=Enum.EasingStyle.Linear
+
+function az.new(aC,aD,aE,aF)
+local aG=setmetatable({},az)
+
+aG.tween=k:Create(aC,TweenInfo.new(aD,aB),{[aE]=aF})
+aG.tween:Play()
+aG.value=aF
+aG.object=aC
+
+if aA[aC]then
+aA[aC]:destroy()
+end
+
+aA[aC]=aG
 return aG
 end
 
-return aC
-end)
-
-az("TweenManager",function()
-local aA={}
-aA.__index=aA
-
-local aB={}
-local aC=Enum.EasingStyle.Linear
-
-function aA.new(aD,aE,aF,aG)
-local aH=setmetatable({},aA)
-
-aH.tween=k:Create(aD,TweenInfo.new(aE,aC),{[aF]=aG})
-aH.tween:Play()
-aH.value=aG
-aH.object=aD
-
-if aB[aD]then
-aB[aD]:destroy()
-end
-
-aB[aD]=aH
-return aH
-end
-
-function aA:destroy()
+function az:destroy()
 self.tween:Pause()
 self.tween:Destroy()
 
-aB[self.object]=nil
+aA[self.object]=nil
 setmetatable(self,nil)
 end
 
-function aA:stopTween(aD)
-if aD and aB[aD]then
-aB[aD]:destroy()
+function az:stopTween(aC)
+if aC and aA[aC]then
+aA[aC]:destroy()
 end
 end
 
-return aA
+return az
 end)
 
-return ay
+return ax
 end)()
 
 task.defer(function()
-local ay={3095250,17884881}
-local az=aa({6079649301,4985647299},true)
+local ax={3095250,17884881}
+local ay=aa({6079649301,4985647299},true)
 
-local aA=D
-
-
+local az=D
 
 
 
-local aC={"GANKS","GANKSVolley","AAIM"}
 
-local aD=as.MaxLevel
-local aE=as.Sea
-local aF=3025E4
 
-local aG={
-(function(aG)
-if table.find(ay,aG.UserId)then
+local aB={"GANKS","GANKSVolley","AAIM"}
+
+local aC=ar.MaxLevel
+local aD=ar.Sea
+local aE=3025E4
+
+local aF={
+(function(aF)
+if table.find(ax,aF.UserId)then
 return true
-elseif az[aG.UserId]then
-return true
-end
-end),
-(function(aG,aH)
-if aH.Level.Value>aD then
-return true
-elseif aH.Beli.Value>=3e8 and aH.Level.Value<=700 then
+elseif ay[aF.UserId]then
 return true
 end
 end),
-(function(aG,aH)
-if aE>1 and aH.Level.Value<700 then
+(function(aF,aG)
+if aG.Level.Value>aC then
 return true
-elseif aE>2 and aH.Level.Value<1500 then
+elseif aG.Beli.Value>=3e8 and aG.Level.Value<=700 then
 return true
 end
 end),
-(function(aG)
-for aH=1,#aC do
-if aG:GetAttribute(aC[aH])then
+(function(aF,aG)
+if aD>1 and aG.Level.Value<700 then
+return true
+elseif aD>2 and aG.Level.Value<1500 then
+return true
+end
+end),
+(function(aF)
+for aG=1,#aB do
+if aF:GetAttribute(aB[aG])then
 return true
 end
 end
 end),
-(function(aG)
-local aH=aG:WaitForChild"leaderstats":WaitForChild"Bounty/Honor"
+(function(aF)
+local aG=aF:WaitForChild"leaderstats":WaitForChild"Bounty/Honor"
 
-if aH.Value>aF or aH.Value<0 then
+if aG.Value>aE or aG.Value<0 then
 return true
 end
 end)
-}local aH=function(
+}local aG=function(
+
+aG)
+as.RejoinBlocked=true
+return az:Kick(`{aG.DisplayName}/@{aG.Name} maybe it's a blox fruits admin`)end local aH=function(
+
 
 aH)
-at.RejoinBlocked=true
-return aA:Kick(`{aH.DisplayName}/@{aH.Name} maybe it's a blox fruits admin`)end local aI=function(
+if aH==az then return end
 
+local aI=aH:WaitForChild("Data",30)
 
-aI)
-if aI==aA then return end
+if aI then
+aI:WaitForChild("Level",10)
+aI:WaitForChild("Beli",10)
 
-local aJ=aI:WaitForChild("Data",30)
-
-if aJ then
-aJ:WaitForChild("Level",10)
-aJ:WaitForChild("Beli",10)
-
-for aK=1,#aG do
-local aL,aM=pcall(aG[aK],aI,aJ)
-if not aL then
-warn(`redz Hub -> failed to check if @{aI.Name} is a Staff: {aM}`)
-elseif aM then
-return aH(aI)
+for aJ=1,#aF do
+local aK,aL=pcall(aF[aJ],aH,aI)
+if not aK then
+warn(`redz Hub -> failed to check if @{aH.Name} is a Staff: {aL}`)
+elseif aL then
+return aG(aH)
 end
 end
 end end
 
 
 task.spawn(function()
-table.insert(c,m.PlayerAdded:Connect(aI))
-for aJ,aK in ipairs(m:GetPlayers())do task.defer(aI,aK)end
+table.insert(c,m.PlayerAdded:Connect(aH))
+for aI,aJ in ipairs(m:GetPlayers())do task.defer(aH,aJ)end
 end)
 
-for aJ,aK in ay do
-local aL=m:GetFriendsAsync(aK)
-if not aL then task.wait(5)continue end
+for aI,aJ in ax do
+local aK=m:GetFriendsAsync(aJ)
+if not aK then task.wait(5)continue end
 
-while not aL.IsFinished do
-local aM=aL:GetCurrentPage()
+while not aK.IsFinished do
+local aL=aK:GetCurrentPage()
 
-for aN=1,#aM do
-local aO=aM[aN]
-local aP=m:GetPlayerByUserId(aO.Id)
+for aM=1,#aL do
+local aN=aL[aM]
+local aO=m:GetPlayerByUserId(aN.Id)
 
-if aP then
-task.defer(aH,aP)
+if aO then
+task.defer(aG,aO)
 else
-az[aO.Id]=true
+ay[aN.Id]=true
 end
 end
 
-aL:AdvanceToNextPageAsync()
+aK:AdvanceToNextPageAsync()
 end
 end
 end)
 
-
-return at
+return as
