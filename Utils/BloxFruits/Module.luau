@@ -22,7 +22,7 @@ local o=n:WaitForChild"Validator2"
 local p=n:WaitForChild"CommF_"
 local q=n:WaitForChild"CommE"
 
-workspace:WaitForChild"ChestModels"
+local r=workspace:WaitForChild"ChestModels"
 local s=workspace:WaitForChild"_WorldOrigin"
 local t=workspace:WaitForChild"Characters"
 local u=workspace:WaitForChild"SeaBeasts"
@@ -31,16 +31,16 @@ local w=workspace:WaitForChild"Boats"
 local x=workspace:WaitForChild"Map"
 
 local y=s:WaitForChild"EnemySpawns"
-local z=s:WaitForChild"Locations"local _=
+local z=s:WaitForChild"Locations"
 
-l.RenderStepped local _=
-l.Heartbeat
+local A=l.RenderStepped
+local B=l.Heartbeat
 local C=l.Stepped
 local D=m.LocalPlayer
 
 local E=D:WaitForChild"Data"
-E:WaitForChild"Level"
-E:WaitForChild"Fragments"
+local F=E:WaitForChild"Level"
+local G=E:WaitForChild"Fragments"
 local H=E:WaitForChild"Beli"
 
 local I=i:WaitForChild"Modules"
@@ -52,13 +52,13 @@ local L=string.upper(if identifyexecutor then identifyexecutor()else"NULL")
 local M=table.find(K,L)~=nil
 
 local N=(not M and hookmetamethod)or(function(...)return...end)
-
+local O=(not M and hookfunction)or(function(...)return...end)
 
 local P=sethiddenproperty
-local Q=setsimulationradius local _=
+local Q=setsimulationradius
 
-setupvalue or(debug and debug.setupvalue)local _=
-getupvalue or(debug and debug.getupvalue)
+local R=setupvalue or(debug and debug.setupvalue)
+local S=getupvalue or(debug and debug.getupvalue)
 
 local T=i:FindFirstChild"PrivateServerOwnerId"
 local U=if T then T.Value~=0 else true
@@ -336,11 +336,11 @@ ao(h:GetInstanceAddedSignal(Z),function(ap)
 table.insert(_,ap)
 end)
 
-return _ end local _=function(
+return _ end local Z=function(
 
 
-
-
+Z)
+return Z:FindFirstChild(HitboxLimbs[math.random(#HitboxLimbs)])end local _=function(
 
 
 _)
@@ -975,9 +975,9 @@ end)()
 au.Hooking=(function()
 local av={}
 
-aa({"Z","X","C","V","F"},true)local _=
+local aw=aa({"Z","X","C","V","F"},true)
 
-f.rz_EnabledOptions;
+local ax=f.rz_EnabledOptions;
 local ay;
 
 local az=0;
@@ -1215,14 +1215,14 @@ local aw={
 
 ["Ship Deckhand"]="Ectoplasm",["Ship Engineer"]="Ectoplasm",
 ["Ship Officer"]="Ectoplasm",["Ship Steward"]="Ectoplasm",
-}local _=
+}
 
-at.SpawnLocations
-local ay=ar.Enemies local _=
+local ax=at.SpawnLocations
+local ay=ar.Enemies
 
-ac.UnprotectObject local _=
-ac.ProtectObject local _=
-ac.OriginalIndex
+local az=ac.UnprotectObject
+local aA=ac.ProtectObject
+local aB=ac.OriginalIndex
 
 local aC=d.GetBringAttachment()
 
@@ -1318,10 +1318,10 @@ end end
 for aK,aL in y:GetChildren()do aJ(aL)end
 ao(y.ChildAdded,aJ)
 ao(z.ChildAdded,aI)
-end local aI=function(
+end local aH=function(
 
-
-
+aH)
+return not aE[aH]end local aI=function(
 
 
 aI, aJ, aK, aL, aM)
@@ -2127,70 +2127,80 @@ end)
 
 az("Translator",function(aA,aB)
 local aC=aA.MakeTab
-
+local aD=false
 
 local aE={}
-local aF={}local aG=function(
+local aF={}
 
-aG)
-local aH=aB[aG.Title]
+local aG="⚠️ "local aH=function(
 
-if aH then
-if aH[1]~=nil then
-aG:SetTitle(aH[1])
+aH)
+local aI=aH.Title
+local aJ=false
+
+if aI:sub(1,#aG)==aG then
+aI=aI:sub(#aG+1,-1)
+aJ=true
 end
 
-if aH[2]~=nil then
-aG:SetDesc(aH[2])
+local aK=aB[aI]
+
+if aK then
+if aK[1]~=nil then
+aH:SetTitle((aJ and aG or"")..aK[1])
+end
+
+if aK[2]~=nil then
+aH:SetDesc(aK[2])
 end
 end
 
-return aG end
+return aH end
 
 
-function aF:AddSection(aH)
-return aG(aE["AddSection"](self,aH))
+function aF:AddSection(aI)
+return aH(aE["AddSection"](self,aI))
 end
 
-function aF:AddParagraph(aH,aI)
-return aG(aE["AddParagraph"](self,aH,aI))
+function aF:AddParagraph(aI,aJ)
+return aH(aE["AddParagraph"](self,aI,aJ))
 end
 
-function aF:AddToggle(aH)
-return aG(aE["AddToggle"](self,aH))
+function aF:AddToggle(aI)
+return aH(aE["AddToggle"](self,aI))
 end
 
-function aF:AddDropdown(aH)
-return aG(aE["AddDropdown"](self,aH))
+function aF:AddDropdown(aI)
+return aH(aE["AddDropdown"](self,aI))
 end
 
-function aF:AddSlider(aH)
-return aG(aE["AddSlider"](self,aH))
+function aF:AddSlider(aI)
+return aH(aE["AddSlider"](self,aI))
 end
 
-function aF:AddButton(aH)
-return aG(aE["AddButton"](self,aH))
+function aF:AddButton(aI)
+return aH(aE["AddButton"](self,aI))
 end
 
-function aF:AddTextBox(aH)
-return aG(aE["AddTextBox"](self,aH))
+function aF:AddTextBox(aI)
+return aH(aE["AddTextBox"](self,aI))
 end
 
-aA.MakeTab=function(aH,aI)
-local aJ=aI[1]or aI.Name or aI.Title
+aA.MakeTab=function(aI,aJ)
+local aK=aJ[1]or aJ.Name or aJ.Title
 
-if aB[aJ]then
-aI[1]=aB[aJ]
+if aB[aK]then
+aJ[1]=aB[aK]
 end
 
-local aK=aC(aH,aI)
+local aL=aC(aI,aJ)
 
-for aL,aM in aF do
-aE[aL]=aK[aL]
-aK[aL]=aM
+for aM,aN in aF do
+aE[aM]=aL[aM]
+aL[aM]=aN
 end
 
-return aK
+return aL
 end
 end)
 
@@ -2262,9 +2272,9 @@ local az=aa({6079649301,4985647299},true)
 
 local aA=D
 
-
-
-
+local aB={
+["Triple Dark Blade"]=true
+}
 
 local aC={"GANKS","GANKSVolley","AAIM"}
 
