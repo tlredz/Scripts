@@ -2322,53 +2322,57 @@ end)
 
 aH)
 at.RejoinBlocked=true
-return aA:Kick(`{aH.DisplayName}/@{aH.Name} maybe it's a blox fruits admin`)end local aI=function(
+return aA:Kick(`{aH.DisplayName}/@{aH.Name} maybe it's a blox fruits admin`)end
 
 
-aI)
-if aI==aA then return end
+local aI=d.NewPlayerAdded
+d.SetPossibleStaffKick(aH)local aJ=function(
 
-local aJ=aI:WaitForChild("Data",30)
+aJ)
+if aJ==aA then return end
 
-if aJ then
-aJ:WaitForChild("Level",10)
-aJ:WaitForChild("Beli",10)
+local aK=aJ:WaitForChild("Data",30)
 
-for aK=1,#aG do
-local aL,aM=pcall(aG[aK],aI,aJ)
-if not aL then
-warn(`redz Hub -> failed to check if @{aI.Name} is a Staff: {aM}`)
-elseif aM then
-return aH(aI)
+if aK then
+aK:WaitForChild("Level",10)
+aK:WaitForChild("Beli",10)
+task.spawn(aI,aJ)
+
+for aL=1,#aG do
+local aM,aN=pcall(aG[aL],aJ,aK)
+if not aM then
+warn(`redz Hub -> failed to check if @{aJ.Name} is a Staff: {aN}`)
+elseif aN then
+return aH(aJ)
 end
 end
 end end
 
 
 task.spawn(function()
-table.insert(c,m.PlayerAdded:Connect(aI))
-for aJ,aK in ipairs(m:GetPlayers())do task.defer(aI,aK)end
+table.insert(c,m.PlayerAdded:Connect(aJ))
+for aK,aL in ipairs(m:GetPlayers())do task.defer(aJ,aL)end
 end)
 
-for aJ,aK in ay do
-local aL=m:GetFriendsAsync(aK)
-if not aL then task.wait(5)continue end
+for aK,aL in ay do
+local aM=m:GetFriendsAsync(aL)
+if not aM then task.wait(5)continue end
 
-while not aL.IsFinished do
-local aM=aL:GetCurrentPage()
+while not aM.IsFinished do
+local aN=aM:GetCurrentPage()
 
-for aN=1,#aM do
-local aO=aM[aN]
-local aP=m:GetPlayerByUserId(aO.Id)
+for aO=1,#aN do
+local aP=aN[aO]
+local aQ=m:GetPlayerByUserId(aP.Id)
 
-if aP then
-task.defer(aH,aP)
+if aQ then
+task.defer(aH,aQ)
 else
-az[aO.Id]=true
+az[aP.Id]=true
 end
 end
 
-aL:AdvanceToNextPageAsync()
+aM:AdvanceToNextPageAsync()
 end
 end
 end)
