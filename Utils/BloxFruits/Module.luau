@@ -393,7 +393,7 @@ local ar={
 Sea=table.find({2753915549,4442272183,7449423635},game.PlaceId)or 0,
 SeasName={"Main","Dressrosa","Zou"},
 MaxMastery=600,
-MaxLevel=2750
+MaxLevel=2800
 }
 
 ar.StringVersion=d.GetGameVersion(Y)
@@ -2186,6 +2186,11 @@ end
 local aI=az[aG]
 
 if aI then
+if type(aI)=="string"then
+aF:SetTitle((aH and aE or"")..aI)
+return aF
+end
+
 if aI[1]~=nil then
 aF:SetTitle((aH and aE or"")..aI[1])
 end
