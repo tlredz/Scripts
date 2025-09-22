@@ -1545,7 +1545,7 @@ end end
 
 
 for aP,aQ in h:GetTagged"BasicMob"do aO(aQ)end
-table.insert(c,h:GetInstanceAddedSignal"BasicMob":Connect(aO))
+an(h:GetInstanceAddedSignal"BasicMob",aO)
 end
 
 return au
@@ -1675,231 +1675,244 @@ local aB=at.Network
 local aC=d.SendLeftClickRemote
 local aD=d.CheckAttackDebounce
 local aE=d.GetPartBoundsInBox
-local aF=d.SendHitsToServer
-local aG=d.PlayHitAnimation
-local aH=d.SetHitsCooldown
-local aI=d.IsAttackWeapon
-local aJ=d.NewDebounce
-local aK=d.GetMaxHits
-local aL=d.CheckStun
+local aF=d.PlayHitAnimation
+local aG=d.SetHitsCooldown
+local aH=d.IsAttackWeapon
+local aI=d.NewDebounce
+local aJ=d.GetMaxHits
+local aK=d.CheckStun
 
-local aM=d.UpdateShootAndValidator
-local aN=d.CanGetGunValidator
+local aL=d.CanSendHitsToServer
+local aM=d.SendHitsToServer
 
-local aO=aB:RemoteEvent"ShootGunEvent"
+local aN=d.UpdateShootAndValidator
+local aO=d.CanGetGunValidator
 
-local aP=0.4
+local aP=aB:RemoteEvent"ShootGunEvent"
+
 local aQ=0
-local aR=4
-local aS=0
+local aR=0.4
+local aS=4
 local aT=0
+
 local aU=0
+local aV=0
+local aW=0
+local aX=0
 
 d.SetRigisterAttackEvent(aB:RemoteEvent"RegisterAttack")
-d.SetRigisterHitEvent(aB:RemoteEvent"RegisterHit")local aV=function(
+d.SetRigisterHitEvent(aB:RemoteEvent"RegisterHit")local aY=function(
 
-aV)
-return if aV==s then au.attackPlayers else au.attackMobs end local aW=function(
-
-
-aW, aX, aY)
-local aZ=aK()
-local a_={}
-local a0={}
+aY)
+return if aY==s then au.attackPlayers else au.attackMobs end local aZ=function(
 
 
+aZ, a_, a0)
+local a1=aJ()
+local a2={}
+local a3={}
 
+for a4,a5 in a0 do
+local a6=a5.Parent
+local a7=a6.Parent
 
-for a1,a2 in aY do
-local a3=a2.Parent
-local a4=a3.Parent
+if a7.Parent~=workspace or not X(a6)then continue end
+if a7==s and(a6==C.Character or not ag(a6))then continue end
+if not aY(a7)then continue end
 
-if not aV(a4)then continue end
-if a4.Parent~=workspace or not X(a3)then continue end
-if a4==s and(a3==C.Character or not ag(a3))then continue end
-
-if not a0[a3]then
-table.insert(a_,{a3,a2})
-a0[a3]=true
+if(tick()-aU)<=0 then
+if(a6.Humanoid.Health/a6.Humanoid.MaxHealth)<=aV then
+continue
+end
 end
 
-if#a_>=aZ then
+if not a3[a6]then
+table.insert(a2,{a6,a5})
+a3[a6]=true
+end
+
+if#a2>=a1 then
 break
 end
 end
 
-if#a_>0 then
-aG(aW)
-aH(aX)
-aF(a_)
-end end local aX=function()
+if#a2>0 then
+aF(aZ)
+aG(a_)
+aM(a2)
+end end local a_=function()
 
 
 
-if aS>=aR or(tick()-aQ)>=aP then
-aS=0
+if aT>=aS or(tick()-aQ)>=aR then
+aT=0
 end
 
 aQ=tick()
-aS+=1
-return aS end local aY=function(
+aT+=1
+return aT end local a0=function(
 
 
-aY)
-local aZ=aY.Parent
-local a_=aZ.Parent.Parent
+a0)
+local a1=a0.Parent
+local a2=a1.Parent.Parent
 
-if a_~=workspace then
-a_=a_.Parent
-aZ=aZ.Parent
+if a2~=workspace then
+a2=a2.Parent
+a1=a1.Parent
 end
 
-if a_==workspace and X(aZ)and aV(aZ.Parent)then
+if a2==workspace and X(a1)and aY(a1.Parent)then
 return true
 end
 
-return false end local aZ=function(
+return false end local a1=function(
 
 
-aZ)
-while aZ.Parent.Parent~=workspace do
-aZ=aZ.Parent
+a1)
+while a1.Parent.Parent~=workspace do
+a1=a1.Parent
 end
-return aZ end local a_=function(
+return a1 end local a2=function(
 
 
-a_, a0, a1)
-if not a0.Enabled then return end
-if not aN then return end
+a2, a3, a4)
+if not a3.Enabled then return end
+if not aO then return end
 
-local a2=C.Character
-local a3,a4=math.huge
-local a5=at.PlayerManager:GetRootPartPosition()
+local a5=C.Character
+local a6,a7=math.huge
+local a8=at.PlayerManager:GetRootPartPosition()
 
-for a6,a7 in a_ do
-if a7:IsDescendantOf(a2)then continue end
-if not aY(a7)then continue end
+for a9,ba in a2 do
+if ba:IsDescendantOf(a5)then continue end
+if not a0(ba)then continue end
 
-local a8=(a5-a7.Position).Magnitude
+local bb=(a8-ba.Position).Magnitude
 
-if a8<a3 then
-a8,a4=a8,a7
+if bb<a6 then
+bb,a7=bb,ba
 end
 
-if a8<50 then
+if bb<50 then
 break
 end
 end
 
-if a4 then
-local a6=aZ(a4)
-local a7=az[a0.Name]or"Normal"
+if a7 then
+local a9=a1(a7)
+local ba=az[a3.Name]or"Normal"
 
-if a7=="Overheat"then
-aT=tick()+9e9
+if ba=="Overheat"then
+aW=tick()+9e9
 
-while X(a2)and X(a6)and a0.Parent==a2 do
-aM(a0)
-aO:FireServer(a4.Position,{a4})
+while X(a5)and X(a9)and a3.Parent==a5 do
+aN(a3)
+aP:FireServer(a7.Position,{a7})
 task.wait()
 
-if al(a4)>a1 then
+if al(a7)>a4 then
 break
 end
 end
 
-aT=0
-elseif a7=="Normal"then
-aM(a0)
+aW=0
+elseif ba=="Normal"then
+aN(a3)
 
-for a8=1,(ax[a0.Name]or 1)do
-aO:FireServer(a4.Position,{a4})
+for bb=1,(ax[a3.Name]or 1)do
+aP:FireServer(a7.Position,{a7})
 end
 else
-au:ShootInTarget(a4.Position)
+au:ShootInTarget(a7.Position)
 end
-end end local a0=function(
+end end local a3=function(
 
 
-a0, a1)
-local a2=C.Character
+a3, a4)
+local a5=C.Character
 
-for a3,a4 in a0 do
-if a4:IsDescendantOf(a2)then continue end
-if not aY(a4)then continue end
+for a6,a7 in a3 do
+if a7:IsDescendantOf(a5)then continue end
+if not a0(a7)then continue end
 
-local a5=at.PlayerManager:GetRootPartPosition()
-local a6=(a4.Position-a5).Unit
+local a8=at.PlayerManager:GetRootPartPosition()
+local a9=(a7.Position-a8).Unit
 
-aC(a1,a6,aX())
+aC(a4,a9,a_())
 return nil
 end end
 
 
-function au.AddAttackDebounce(a1)
-aT=tick()+a1
+function au.AddAttackDebounce(a4)
+aW=tick()+a4
 end
 
-function au:ShootInTarget(a1)
-if(tick()-aU)<0 then return end
-if not aN then return end
+function au.DontAttackBelowPercent(a4)
+aU=tick()+1
+aV=a4
+end
 
-local a2=X(C.Character)and C.Character:FindFirstChildOfClass"Tool"
-if not a2 or a2.ToolTip~="Gun"then return end
+function au:ShootInTarget(a4)
+if(tick()-aX)<0 then return end
+if not aO then return end
 
-local a3=a2:FindFirstChild"Cooldown"
-if not a3 then return end
+local a5=X(C.Character)and C.Character:FindFirstChildOfClass"Tool"
+if not a5 or a5.ToolTip~="Gun"then return end
 
-local a4=az[a2.Name]
+local a6=a5:FindFirstChild"Cooldown"
+if not a6 then return end
 
-if a4=="Position"or a4=="TAP"and a2:FindFirstChild"RemoteEvent"then
-aU=tick()+a3.Value
-aM(a2)
+local a7=az[a5.Name]
 
-if a4=="TAP"then
-a2.RemoteEvent:FireServer("TAP",a1)
+if a7=="Position"or a7=="TAP"and a5:FindFirstChild"RemoteEvent"then
+aX=tick()+a6.Value
+aN(a5)
+
+if a7=="TAP"then
+a5.RemoteEvent:FireServer("TAP",a4)
 else
-aO:FireServer(a1)
+aP:FireServer(a4)
 end
 end
 end
 
 an(B,function()
-local a1=C.Character
-if not X(a1)then return end
-if(tick()-aT)<=0 then return end
+local a4=C.Character
+if not X(a4)then return end
+if(tick()-aW)<=0 then return end
 
-local a2=a1.Humanoid
-local a3=a2.RootPart
+local a5=a4.Humanoid
+local a6=a5.RootPart
 
-if not a3 then return end
+if not a6 then return end
 
-local a4=a1:FindFirstChildOfClass"Tool"
+local a7=a4:FindFirstChildOfClass"Tool"
 
-if not a4 or not aI(a4)then
+if not a7 or not aH(a7)then
 return nil
 end
 
-if aD(a4)and aL(a4)then
-local a5=a4.ToolTip
-local a6=aJ(a4)
-local a7=(ay[a4.Name]or av[a5])*2
+if aD(a7)and aK(a7)then
+local a8=a7.ToolTip
+local a9=aI(a7)
+local ba=(ay[a7.Name]or av[a8])*2
 
-local a8=aE(a4,a3.CFrame,a7)
-if#a8==0 then return end
+local bb=aE(a7,a6.CFrame,ba)
+if#bb==0 then return end
 
-if a5=="Blox Fruit"and not aA[a4.Name]then
-local a9=a4:FindFirstChild"LeftClickRemote"
+if a8=="Blox Fruit"and not aA[a7.Name]then
+local bc=a7:FindFirstChild"LeftClickRemote"
 
-if a9 then
-a0(a8,a9)
+if bc then
+a3(bb,bc)
 end
-elseif a5=="Gun"then
+elseif a8=="Gun"then
 if e.AutoShoot or e.UseDragonstormSea then
-a_(a8,a4,a7)
+a2(bb,a7,ba)
 end
 elseif e.AutoAttack then
-aW(a4,a6,a8)
+aZ(a7,a9,bb)
 end
 end
 end)
