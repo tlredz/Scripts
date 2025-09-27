@@ -3,8 +3,8 @@ local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 
 local Scripts = {
 	{
-		PlacesIds = {2753915549, 4442272183, 7449423635, 95165932064349},
-		UrlPath = if BETA_VERSION then "BLOX-FRUITS-BETA.lua" else "BloxFruits.luau" 
+		GameId = 994732206,
+		UrlPath = if BETA_VERSION then "BLOX-FRUITS-BETA.lua" else "BloxFruits.luau"
 	},
 	{
 		PlacesIds = {10260193230},
@@ -115,6 +115,7 @@ local function IsPlace(Script)
 	elseif Script.GameId and Script.GameId == game.GameId then
 		return true
 	end
+	return false
 end
 
 for _, Script in Scripts do
