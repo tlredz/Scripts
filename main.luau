@@ -3,7 +3,7 @@ local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 
 local Scripts = {
 	{
-		PlacesIds = {2753915549, 4442272183, 7449423635},
+		PlacesIds = {2753915549, 4442272183, 7449423635, 95165932064349},
 		UrlPath = if BETA_VERSION then "BLOX-FRUITS-BETA.lua" else "BloxFruits.luau" 
 	},
 	{
