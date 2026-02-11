@@ -3657,6 +3657,10 @@ pcall(I.Destroy,I)
 end
 end
 
+function s:SetIconsUrl(l)
+self.IconsUrl = l
+end
+
 function s:MakeWindow(ab)
 if self.LOADED_UI_LIBRARY then
 return error("you can create only 1 Window",2)
@@ -3781,13 +3785,13 @@ if ai and type(aj)=="table"then
 return aj
 end
 
-local ak=`https://raw.githubusercontent.com/{self.Information.GitHubOwner}`
-local al=`{ak}/Library/refs/heads/main/Library/Utils/Icons.lua`
-local am local an=function()
+local al=self.IconsUrl
+assert(al, "failed to load library: 'self.IconsUrl' expected.")
+local am
 
-
-return z(`{ah}/Icons.lua`,am)end
-
+local an=function()
+return ah and z(`{ah}/Icons.lua`,am)
+end
 
 local ao,ap=pcall(function()
 am=game:HttpGet(al)
