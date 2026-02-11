@@ -138,6 +138,7 @@ Themes=r,
 
 Connections={},
 Options={},
+Icons={},
 Tabs={}
 }
 
@@ -3657,10 +3658,6 @@ pcall(I.Destroy,I)
 end
 end
 
-function s:SetIconsUrl(l)
-self.IconsUrl = l
-end
-
 function s:MakeWindow(ab)
 if self.LOADED_UI_LIBRARY then
 return error("you can create only 1 Window",2)
@@ -3773,41 +3770,6 @@ end)()
 self.ThemesObjects=C
 self.WindowSettings=af
 self.Flags=ag
-
-self.Icons=(function()
-local ah=ae.ScriptFolder
-
-local ai,aj=pcall(function()
-return loadstring(f(`{ah}/Icons.lua`))()
-end)
-
-if ai and type(aj)=="table"then
-return aj
-end
-
-local al=self.IconsUrl
-assert(al, "failed to load library: 'self.IconsUrl' expected.")
-local am
-
-local an=function()
-return ah and z(`{ah}/Icons.lua`,am)
-end
-
-local ao,ap=pcall(function()
-am=game:HttpGet(al)
-return loadstring(am)()
-end)
-
-if ao and type(ap)=="table"then
-if type(am)=="string"then
-pcall(an)
-end
-
-return ap
-end
-
-return{}
-end)()
 
 if type(af.SelectedTheme)=="string"and self:IsValidTheme(af.SelectedTheme)then
 self:SetTheme(af.SelectedTheme)
