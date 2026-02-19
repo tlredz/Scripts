@@ -3685,10 +3685,6 @@ if ae.ScriptFolder~=nil and type(ae.ScriptFolder)~="string"then
 return error(`"Window.ScriptFolder". 'string', or nil expected, got {typeof(ae.ScriptFolder)}`,2)
 end
 
-if ae.ScriptFolder~=nil and string.find(ae.ScriptFolder,"/")then
-return error("\"Window.ScriptFolder\" is not valid, unexpected char \"/\"",2)
-end
-
 local af=(function()
 local af=ae.ScriptFolder
 local ag=false
