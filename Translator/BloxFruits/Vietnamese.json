@@ -1,0 +1,233 @@
+{
+  "Select Tool": ["Chọn Công Cụ", "Chọn công cụ bạn muốn sử dụng"],
+  "UI Scale": ["Tỷ Lệ Giao Diện", "Điều chỉnh kích thước của giao diện người dùng"],
+  
+  "Auto Farm Level": ["Tự Động Farm Cấp", "Tự động farm cấp độ"],
+  "Auto Farm Nearest": ["Farm Kẻ Địch Gần Nhất", "Tự động tiêu diệt những kẻ địch ở gần"],
+  "Sky Piea Farm": ["Farm Đảo Trên Trời", "Tự động farm kẻ địch ở Đảo Trên Trời"],
+  "Player Hunter Quest": ["Nhiệm Vụ Săn Người Chơi", "Chấp nhận và hoàn thành nhiệm vụ săn người chơi"],
+  
+  "Auto Factory": ["Tự Động Farm Nhà Máy", "Tự động farm nhà máy, xuất hiện mỗi 1 giờ 30 phút"],
+  "Auto Farm Ectoplasm": ["Tự Động Farm Ectoplasm", "Tự động farm Ectoplasm"],
+  
+  "Auto Pirates Sea": ["Tự Động Farm Hải Tặc Biển", "Tự động hoàn thành sự kiện hải tặc tại Lâu Đài Trên Biển"],
+  "Auto Farm Bones": ["Tự Động Farm Xương", "Tự động farm xương"],
+  "Auto Kill Soul Reaper": ["Tự Động Giết Soul Reaper", "Triệu hồi và tiêu diệt Soul Reaper"],
+  "Auto Trade Bones": ["Tự Động Đổi Xương", "Tự động đổi xương để lấy phần thưởng"],
+  
+  "Auto Farm Candy": ["Tự Động Farm Kẹo", "Tự động farm Kẹo trong sự kiện Giáng Sinh"],
+  "Auto Christmas Gift": ["Tự Động Nhận Quà Giáng Sinh", "Tự động thu thập quà Giáng Sinh mỗi 1 giờ"],
+  "Auto Store Holiday Gift": ["Tự Động Cất Giữ Quà Sự Kiện", "Lưu trữ những món quà thu thập được trong Sự kiện"],
+  
+  "Auto Chest [ Tween ]": ["Tự Động Nhặt Rương [ Tween ]", "Tự động thu thập rương bằng Tween"],
+  
+  "Update Boss List": ["Cập Nhật Danh Sách Boss", "Làm mới danh sách các boss hiện có"],
+  "Boss List": ["Danh Sách Boss", "Chọn một boss để tấn công"],
+  "Auto Kill Boss Selected": ["Tự Động Giết Boss Đã Chọn", "Tự động tấn công boss đã được chọn"],
+  "Auto Farm All Bosses": ["Tự Động Farm Tất Cả Boss", "Tự động tấn công tất cả các boss hiện có"],
+  "Take Boss Quest": ["Nhận Nhiệm Vụ Boss", "Tự động nhận nhiệm vụ của các boss"],
+  
+  "Material List": ["Danh Sách Nguyên Liệu", "Chọn nguyên liệu để farm"],
+  "Auto Farm Material": ["Tự Động Farm Nguyên Liệu", "Tự động farm nguyên liệu"],
+  
+  "Select Enemy Health [ % ]": ["Chọn Máu Kẻ Địch [ % ]", "Đặt phần trăm máu của kẻ địch để bắt đầu tấn công"],
+  "Select Skills": ["Chọn Kỹ Năng", "Chọn các kỹ năng để sử dụng"],
+  "Auto Farm Mastery": ["Tự Động Farm Thông Thạo", "Tự động tăng thông thạo của các kỹ năng"],
+  
+  "Auto Farm Sea": ["Tự Động Farm Biển", "Tự động farm trên Biển"],
+  "Auto Drive Boat": ["Tự Động Lái Thuyền", "Tự động lái thuyền nếu 'Farm Biển' được kích hoạt"],
+  "Use Gun": ["Sử Dụng Súng", "Sử dụng súng để tấn công Quái Vật Biển và Thuyền"],
+  
+  "Boat Tween Speed": ["Tốc Độ Thuyền", "Điều chỉnh tốc độ của thuyền"],
+  "Teleport to NPC": ["Dịch Chuyển Đến NPC", "Đi đến NPC đã chọn"],
+  "Collect Mirage Chests": ["Thu Thập Rương Đảo Ảo", "Thu thập tất cả các rương trên đảo ảo ảnh"],
+  "Look To Moon": ["Nhìn Lên Mặt Trăng", "Nhìn lên mặt trăng để nó tỏa sáng"],
+  "Auto Finish Trial": ["Tự Động Hoàn Thành Thử Thách", "Tự động hoàn thành Thử thách của tộc bạn"],
+  
+  "Auto Dojo Trainer Quest": ["Nhiệm Vụ Huấn Luyện Viên Dojo", "Tự động hoàn thành các nhiệm vụ Đai"],
+  "Auto Dragon Hunter Quest": ["Nhiệm Vụ Thợ Săn Rồng", "Mỗi khi hoàn thành nhiệm vụ, bạn sẽ nhận được 'Blaze Ember'"],
+  "Auto Elite Hunter": ["Tự Động Săn Tinh Anh", "Hoàn thành nhiệm vụ Thợ Săn Tinh Anh mỗi 10 phút"],
+  "Auto Rip Indra": ["Tự Động Rip Indra", "Lấy Chén Thánh, kích hoạt các tấm bảng, triệu hồi và tiêu diệt Rip Indra"],
+  "Auto Cake Prince": ["Tự Động Cake Prince", "Triệu hồi và tiêu diệt Cake Prince"],
+  "Auto Dough King": ["Tự Động Dough King", "Lấy Chén Kẹo, triệu hồi và tiêu diệt Dough King"],
+  
+  "Auto Collect Yama": ["Tự Động Lấy Yama", "Nhận kiếm Yama khi giết đủ 30 Tinh Anh"],
+  "Auto Tushita": ["Tự Động Lấy Tushita", "Giải câu đố của Tushita và tiêu diệt Longma"],
+  "Auto Cursed Dual Katana": ["Tự Động Lấy Song Kiếm Bị Nguyền", "Mở khóa Song Kiếm Bị Nguyền (Cursed Dual Katana)"],
+  
+  "Auto Citizen Quest": ["Hoàn Thành Nhiệm Vụ Citizen", "Hoàn thành nhiệm vụ của Citizen để mở khóa Mũ Lính Ngự Lâm (Musketeer Hat)"],
+  "Auto Rainbow Haki": ["Tự Động Lấy Haki Cầu Vồng", "Mở khóa màu Haki Cầu vồng"],
+  
+  "Third Sea": ["Biển Thứ Ba", "Mở khóa quyền truy cập vào biển thứ ba"],
+  "Auto Third Sea": ["Tự Động Đến Biển Thứ Ba", "Hoàn thành các yêu cầu để đến Biển Thứ Ba"],
+  "Auto Kill Don Swan": ["Tự Động Giết Don Swan", "Giao trái ác quỷ cho Trevor và tiêu diệt Don Swan"],
+  
+  "Auto Darkbeard": ["Tự Động Darkbeard", "Triệu hồi và tiêu diệt Darkbeard"],
+  "Auto Cursed Captain": ["Tự Động Giết Thuyền Trưởng Bị Nguyền", "Tiêu diệt Thuyền Trưởng Bị Nguyền khi hắn xuất hiện"],
+  
+  "Auto Kill Law": ["Tự Động Đánh Law", "Bắt đầu Raid và tiêu diệt Law"],
+  "Auto Buy Microchip": ["Mua Microchip", "Mua Microchip từ Raid Law"],
+  
+  "Legendary Sword": "Kiếm Huyền Thoại",
+  "Aura Color": "Màu Haki",
+  "Auto Buy Legendary Sword": ["Tự Động Mua Kiếm Huyền Thoại", "Tự động mua kiếm khi người bán xuất hiện"],
+  "Auto Rengoku": ["Tự Động Lấy Rengoku", "Lấy Chìa Khóa Ẩn và mở khóa Rengoku"],
+  "Auto Collect Berries": ["Tự Động Thu Thập Dâu", "Thu thập các quả Dâu rải rác trên bản đồ"],
+  "Auto Berry Hop": ["Tự Động Đổi Server Tìm Dâu", "Đổi server sau khi thu thập hết các quả Dâu"],
+  "Select Aura": ["Chọn Màu", "Chọn màu Haki"],
+  "Auto Craft Aura Color": ["Tự Động Chế Tạo Màu Haki", "Thu thập Dâu (Berries) cho đến khi có thể chế tạo màu Haki đã chọn"],
+  "Auto Craft Hop": ["Tự Động Đổi Server Để Chế Tạo", "Đổi server để tìm những quả dâu còn thiếu để chế tạo"],
+  
+  "Race": "Tộc",
+  "Auto Race V2": ["Tự Động Nâng Tộc Lên V2", "Nâng cấp tộc lên V2"],
+  "Auto Race V3": ["Tự Động Nâng Tộc Lên V3", "Nâng cấp tộc (chỉ dành cho Mink, Người hoặc Cá)"],
+  
+  "Auto Bartilo Quest": ["Nhiệm Vụ Bartilo Tự Động", "Yêu cầu cấp 850"],
+  
+  "Second Sea": "Biển Thứ Hai",
+  "Auto Second Sea": ["Tự Động Đến Biển Thứ Hai", "Hoàn thành các yêu cầu để đến Biển Thứ Hai"],
+  
+  "Swords": "Kiếm",
+  "Auto Unlock Saber": ["Tự Động Mở Khóa Saber", "Hoàn thành câu đố và đánh bại Shanks"],
+  "Auto Pole V1": ["Tự Động Lấy Pole V1", "Đánh bại Thần Sấm (Thunder God) cho đến khi nhận được Pole V1"],
+  "Auto Saw Sword": ["Tự Động Lấy Shark Saw", "Đánh bại The Saw cho đến khi nhận được Shark Saw"],
+  
+  "Auto Mastery all Swords": ["Tự Động Tăng Tối Đa Thông Thạo Tất Cả Kiếm", "Đạt thông thạo tối đa cho tất cả các thanh kiếm đã mở khóa"],
+  
+  "Fruits": "Trái Ác Quỷ",
+  "Auto Store Fruits": ["Tự Động Cất Trái Ác Quỷ", "Cất giữ trái ác quỷ vào Kho đồ của bạn"],
+  "Teleport To Fruits": ["Tự Động Thu Thập Trái Ác Quỷ", "Thu thập các trái ác quỷ có trên bản đồ"],
+  "Auto Random Fruit": ["Tự Động Quay Trái Ác Quỷ Ngẫu Nhiên", "Tự động quay trái ác quỷ"],
+  
+  "Select Chip": ["Chọn Chip Raid", "Chọn chip để bắt đầu raid"],
+  "Auto Farm Raid": ["Tự Động Farm Raid", "Tự động farm raid, thức tỉnh và tấn công"],
+  "Auto Buy Chip": ["Tự Động Mua Chip Raid", "Mua chip để tham gia raid"],
+  "Unstore Common Fruits": ["Lấy Trái Ác Quỷ Thường Ra", "Lấy các trái ác quỷ thường ra khỏi kho để đổi lấy Microchip"],
+  
+  "Islands": "Đảo",
+  "Islands Stats": "Đảo Đã Xuất Hiện",
+  "Auto Craft Volcanic Magnet": ["Chế Tạo Nam Châm Núi Lửa", "Thu thập nguyên liệu và tạo ra Nam Châm Núi Lửa"],
+  "Fully Prehistoric Island": ["Hoàn Thành Toàn Bộ Đảo Tiền Sử", "Làm tất cả mọi thứ trong sự kiện đảo Tiền sử"],
+  "Teleport to Prehistoric Island": ["Dịch Chuyển Đến Đảo Tiền Sử", "Dịch chuyển đến đảo Tiền sử"],
+  "Ignore Collect Bones [ Fully ]": ["Bỏ Qua Thu Thập Xương [ Toàn Bộ ]", "Không thu thập Xương"],
+  "Ignore Collect Dragon Egg [ Fully ]": ["Bỏ Qua Thu Thập Trứng Rồng [ Toàn Bộ ]", "Không thu thập Trứng Rồng"],
+  "Reset character after Finishing [ Fully ]": ["Reset Nhân Vật Sau Khi Hoàn Thành [ Toàn Bộ ]", "Reset nhân vật sau khi hoàn thành đảo Tiền sử"],
+  
+  "Kitsune Island": "Đảo Kitsune",
+  "Trade Azure Ember Amount": ["Số Lượng Đổi", "Đặt số lượng Azure Ember để đổi"],
+  "Auto Trade Azure Ember": ["Tự Động Đổi Azure Ember", "Đổi Azure Ember để lấy phần thưởng ngẫu nhiên"],
+  "Auto Kitsune Island": ["Farm Đảo Kitsune", "Tìm kiếm đảo Kitsune và thu thập Azure Ember"],
+  
+  "Mirage Island": "Đảo Ảo Ảnh",
+  "Teleport To Gear": ["Dịch Chuyển Đến Bánh Răng", "Đi đến Bánh Răng nếu có"],
+  "Teleport To Mirage": ["Dịch Chuyển Đến Đảo Ảo Ảnh", "Đi đến đảo Ảo Ảnh"],
+  "Teleport To Fruit Dealer": ["Dịch Chuyển Đến Người Bán Trái Ác Quỷ", "Đi đến người bán trái ác quỷ trên đảo ảo ảnh"],
+  
+  "Teleport to Sea 1": ["Đến Biển 1", "Dịch chuyển đến Biển Thứ Nhất"],
+  "Teleport to Sea 2": ["Đến Biển 2", "Dịch chuyển đến Biển Thứ Hai"],
+  "Teleport to Sea 3": ["Đến Biển 3", "Dịch chuyển đến Biển Thứ Ba"],
+  
+  "Select Island": "Chọn Đảo",
+  "Teleport to Island": "Dịch Chuyển Đến Đảo",
+  "Teleport to Temple of Time": "Dịch Chuyển Đến Đền Thời Gian",
+  
+  "Esp Size": "Kích Thước ESP",
+  "ESP My Boat": ["ESP Thuyền Của Tôi", "Hiển thị vị trí thuyền của bạn trên bản đồ"],
+  "ESP Players": ["ESP Người Chơi", "Hiển thị người chơi trên bản đồ"],
+  "ESP Fruits": ["ESP Trái Ác Quỷ", "Hiển thị trái ác quỷ trên bản đồ"],
+  "ESP Islands": ["ESP Đảo", "Hiển thị các đảo trên bản đồ"],
+  "ESP Chests": ["ESP Rương", "Hiển thị các rương có thể thu thập"],
+  "ESP Berries": ["ESP Dâu", "Hiển thị các quả Dâu đã có sẵn để thu thập"],
+  
+  "Meteor Rain": "Mưa Thiên Thạch",
+  "Remove Portal Dash Cooldown": "Xóa Thời Gian Hồi Chiêu Lướt Của Portal",
+  "Enable Roblox Emote Menu": "Bật Menu Biểu Cảm Của Roblox",
+  
+  "Execute Clipboard": ["Thực Thi Từ Clipboard", "Thực thi script đã sao chép"],
+  "Redeem all Codes": ["Đổi Tất Cả Mã", "Nhận phần thưởng từ các mã có sẵn"],
+  
+  "Start Server Hopping": "Bắt Đầu Đổi Server",
+  "Options [ Priority Order > ]": "Tùy Chọn [ Thứ Tự Ưu Tiên > ]",
+  "Don't hop if has \"Fist of Darkness\"": "Không đổi server nếu có \"Nắm Đấm Bóng Tối\"",
+  "Don't hop if has \"God's Chalice\"": "Không đổi server nếu có \"Chén Thánh\"",
+  "Don't hop if has \"Hellfire Torch\"": "Không đổi server nếu có \"Ngọn Đuốc Lửa Địa Ngục\"",
+  "Elite Hunter Quest": ["Đánh Bại Boss Tinh Anh", "Hoàn thành nhiệm vụ Thợ Săn Tinh Anh nếu có bất kỳ Boss Tinh Anh nào xuất hiện."],
+  "Pirates Sea": ["Hoàn Thành Raid Hải Tặc", "Hoàn thành Raid Hải tặc diễn ra tại Lâu Đài Biển."],
+  "Complete Factory": ["Hoàn Thành Nhà Máy", "Phá hủy lõi nhà máy để nhận một trái ác quỷ ngẫu nhiên."],
+  "Collect Fruits": ["Thu Thập Trái Ác Quỷ", "Thu thập các trái ác quỷ tự nhiên hoặc trái ác quỷ do người chơi khác làm rơi."],
+  "Collect Berries": ["Thu Thập Dâu", "Thu thập tất cả các quả Dâu (Berries) rải rác trên bản đồ."],
+  "Collect Chests": ["Thu Thập Rương", "Thu thập 25 rương trước khi đổi Server."],
+  "Defeat Cursed Captain": ["Đánh Bại Thuyền Trưởng Bị Nguyền", "Đánh bại Thuyền Trưởng Bị Nguyền nếu hắn xuất hiện."],
+  "Complete Raids": ["Hoàn Thành Raid", "Hoàn thành raid bằng cách sử dụng các trái ác quỷ không thể cất giữ."],
+  
+  "Rejoin Server": ["Vào Lại Server", "Vào lại server hiện tại"],
+  "Server Hop": ["Đổi Server", "Vào một server khác"],
+  "Rejoin": ["Vào Lại", "Vào lại server hiện tại"],
+  
+  "Join Pirates Team": ["Gia Nhập Đội Hải Tặc", "Tham gia phe hải tặc"],
+  "Join Marines Team": ["Gia Nhập Đội Hải Quân", "Tham gia phe hải quân"],
+  
+  "Devil Fruit Shop": ["Cửa Hàng Trái Ác Quỷ", "Mở cửa hàng trái ác quỷ"],
+  "Advanced Fruit Dealer": ["Cửa Hàng Trái Ác Quỷ Cao Cấp", "Mở cửa hàng trái ác quỷ trên đảo ảo"],
+  "Titles": ["Danh Hiệu", "Hiển thị các danh hiệu của bạn"],
+  "Haki Color": ["Màu Haki", "Thay đổi màu Haki của bạn"],
+  
+  "Auto Active Race V3": ["Tự Động Kích Hoạt Tộc V3", "Kích hoạt Tộc V3 mỗi 30 giây"],
+  "Auto Active Race V4": ["Tự Động Kích Hoạt Tộc V4", "Kích hoạt Tộc V4 khi thanh năng lượng đầy"],
+  
+  "Remove Fog": ["Xóa Sương Mù", "Loại bỏ sương mù khỏi bản đồ"],
+  "Auto Rejoin": ["Tự Động Vào Lại", "Tự động vào lại trò chơi"],
+  
+  "Remove Damage": ["Xóa Hiển Thị Sát Thương", "Tắt hiển thị sát thương trên Quái vật"],
+  "Remove Notifications": ["Xóa Thông Báo", "Tắt thông báo của trò chơi"],
+  
+  "Walk On Water": ["Đi Trên Nước", "Cho phép đi bộ trên mặt nước"],
+  "Anti AFK": ["Chống AFK", "Tránh bị ngắt kết nối do không hoạt động"],
+  
+  "Take Quest Debounce": ["Chờ Nhận Nhiệm Vụ", "Đợi 75 giây trước khi nhận nhiệm vụ tiếp theo"],
+  "Smooth Farm Mode": ["Chế Độ Farm Mượt", "Giảm thiểu các phép tính của script để trò chơi nhẹ hơn"],
+  
+  "Race Reroll": "Quay Lại Tộc",
+  "Reset Stats": "Thiết Lập Lại Chỉ Số",
+  
+  "Auto Draco V2 & V3": ["Tự Động Draco V2 & V3", "Tự động nâng cấp tộc Draco lên V2 và V3"],
+  
+  "Only on Sea 2 and 3": "Raid chỉ có ở Biển Thứ Hai và Thứ Ba",
+  "Acessories": "Phụ Kiện",
+  "Gun": "Súng",
+  "Select NPC": "Chọn NPC",
+  "Farm Select": "Chọn Chế Độ Farm",
+  "Travel": "Di Chuyển",
+  "Settings": "Cài Đặt",
+  "ESP": "ESP",
+  "Codes": "Mã",
+  "Server": "Máy Chủ",
+  "Team": "Đội",
+  "Menu": "Menu",
+  "Visual": "Hình Ảnh",
+  "More FPS": "Thêm FPS",
+  "Christmas": "Giáng Sinh",
+  "Bones": "Xương",
+  "Ectoplasm": "Ectoplasm",
+  "Fruit/Raid": "Trái/Raid",
+  "Teleport": "Dịch Chuyển",
+  "Chest": "Rương",
+  "Quests/Items": "Nhiệm Vụ/Vật Phẩm",
+  "Shop": "Cửa Hàng",
+  "Sword": "Kiếm",
+  "Quest": "Nhiệm Vụ",
+  "Bosses": "Boss",
+  "Fish": "Cá",
+  "Boats": "Thuyền",
+  "Configs": "Cấu Hình",
+  "Sea": "Biển",
+  "Farm": "Farm",
+  "Misc": "Linh Tinh",
+  "Others": "Khác",
+  "Race V4": "Tộc V4",
+  "Enemies": "Kẻ Địch",
+  "Frags": "Mảnh Vỡ",
+  "Accessories": "Phụ Kiện",
+  "Fighting Style": "Phong Cách Chiến Đấu",
+  "Mastery": "Thông Thạo"
+}
